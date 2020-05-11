@@ -6,5 +6,16 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
-}
+  plugins: [
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Plex"],
+          urls: ["/fonts/fonts.css"],
+        },
+      },
+    },
+  ],
+};
