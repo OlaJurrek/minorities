@@ -5,13 +5,19 @@ import AnimatedTitle from "../components/animated-title";
 import MinorityName from "../components/minority-name";
 
 const minorityGroups = [
-  { name: "Niemcy" },
-  { name: "Romowie" },
-  { name: "Polacy", localization: "w Czechach" },
-  { name: "Czesi", localization: "w Polsce" },
-  { name: "Ukraińcy" },
-  { name: "Wietnamczycy" },
-  { name: "Żydzi" },
+  { pl: { name: "Niemcy" }, cz: { name: "Němci" } },
+  { pl: { name: "Romowie" }, cz: { name: "Romové" } },
+  {
+    pl: { name: "Polacy", localization: "w Czechach" },
+    cz: { name: "Poláci", localization: "v Česku" },
+  },
+  {
+    pl: { name: "Czesi", localization: "w Polsce" },
+    cz: { name: "Češi", localization: "v Polsku" },
+  },
+  { pl: { name: "Ukraińcy" }, cz: { name: "Ukrajinci" } },
+  { pl: { name: "Wietnamczycy" }, cz: { name: "Vietnamci" } },
+  { pl: { name: "Żydzi" }, cz: { name: "Židé" } },
 ];
 
 const Intro = styled.div`
@@ -56,7 +62,7 @@ const IntroPage = () => (
         <NavigationList>
           {minorityGroups.map((minority, index) => (
             <li key={index}>
-              <MinorityName name={minority.name} />
+              <MinorityName minority={minority} />
             </li>
           ))}
         </NavigationList>
