@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 import colors from "../assets/styles/colors";
 
-export default function ActiveMarker(props) {
-  return <Marker offset={props.offset} />;
+export default function ActiveMarker({ offset }) {
+  return <Marker offset={offset} />;
 }
 
 const Marker = styled.i`
@@ -14,12 +14,11 @@ const Marker = styled.i`
   transition: transform 0.5s;
   width: 2em;
   height: 2em;
-  background-color: pink;
   background-image: radial-gradient(
-    ${props => (props.background === "isDark" ? colors.dark : colors.white)} 35%,
-    ${props => (props.background === "isDark" ? colors.white : colors.dark)} 39%
-      100%
+    ${colors.lightGrey} 35%,
+    ${colors.dark} 39% 100%
   );
+  border: 1.5px solid ${colors.lightGrey};
   margin-left: 1em;
   border-radius: 50%;
   transform: translateY(${props => props.offset}px);
