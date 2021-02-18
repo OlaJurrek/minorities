@@ -4,7 +4,7 @@ import Sidebar from "./sidebar";
 import GlobalStyle from "../assets/styles/GlobalStyles";
 
 const Main = styled.main`
-  padding: 3em;
+  padding: 7em 5em 3em;
 `;
 
 const Grid = styled.div`

@@ -4,6 +4,7 @@ import colors from '../../assets/styles/colors';
 import typography from "../../assets/styles/typography";
 
 const StyledHeadline = styled.h1`
+    margin: 0 0 1.3em;
     text-align: center;
     color: ${colors.black};
     font-family: ${typography.plex};

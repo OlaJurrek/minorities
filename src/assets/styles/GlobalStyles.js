@@ -1,6 +1,8 @@
 import "sanitize.css";
 import { createGlobalStyle } from "styled-components";
+import 'fontsource-poppins/300.css';
 import colors from "./colors";
+
 
 const GlobalStyle = createGlobalStyle`
 
