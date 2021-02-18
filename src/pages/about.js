@@ -1,10 +1,11 @@
 import React from "react";
 import Layout from "../components/layout";
+import Headline from '../components/atoms/headline';
 
 const AboutProject = () => {
   return (
     <Layout>
-      <h1>O projekcie</h1>
+      <Headline text="O projekcie"/>
     </Layout>
   );
 };
