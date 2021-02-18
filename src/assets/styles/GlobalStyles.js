@@ -6,6 +6,11 @@ import colors from "./colors";
 
 const GlobalStyle = createGlobalStyle`
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
