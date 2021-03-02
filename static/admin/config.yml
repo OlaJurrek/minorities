@@ -26,8 +26,9 @@ collections:
         label: "O projekcie"
         name: "about"
         fields:
-          - { label: "Nagłówek", name: "title", widget: string }
+          - { label: "Główny nagłówek", name: "title", widget: string }
           - { label: "Opis projektu", name: "text", widget: markdown }
+          - { label: "Nagłówek terminów spotkań", name: "dates-header", widget: string }
           - {
               name: "dates",
               label: "Terminy spotkań",
@@ -50,8 +51,8 @@ collections:
         label: "O mniejszościach i większościach"
         name: "translated-article"
         fields:
-          - { label: "Nagłówek", name: "title", widget: string }
           - { label: "Autor", name: "author", widget: string }
+          - { label: "Tytuł", name: "title", widget: string }
           - { label: "Główna treść", name: "content", widget: markdown }
           - { name: translator, label: "Tłumacz", widget: string }
     
