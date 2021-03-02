@@ -1,5 +1,7 @@
 backend:
-  name: test-repo
+  name: github
+  repo: OlaJurrek/minorities
+  branch: main
 
 media_folder: static/images/uploads
 public_folder: /images/uploads
