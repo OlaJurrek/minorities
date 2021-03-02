@@ -1,0 +1,65 @@
+backend:
+  name: test-repo
+
+media_folder: static/images/uploads
+public_folder: /images/uploads
+
+collections:
+
+  - name: minorities
+    label: Strony mniejszości
+    label_singular: strona mniejszości
+    folder: "src/content/minorities"
+    create: true
+    fields:
+      - { name: path, label: Ścieżka }
+      - { name: title, label: "Nazwa mniejszości" }
+      - { name: content, label: "Główna treść", widget: markdown }
+      - { name: image, label: Obrazek, required: false, widget: image }
+
+  - name: pages
+    label: Pozostałe strony
+    files:
+      - file: "src/content/about.md"
+        label: "O projekcie"
+        name: "about"
+        fields:
+          - { label: "Nagłówek", name: "title", widget: string }
+          - { label: "Opis projektu", name: "text", widget: markdown }
+          - {
+              name: "dates",
+              label: "Terminy spotkań",
+              required: false,
+              widget: "list",
+              label_singular: "termin spotkania",
+              default: ["dates"],
+              field:
+                { label: "spotkanie", name: "spotkanie", widget: "string" },
+            }
+          - {
+              name: patrons,
+              label: "Loga patronów",
+              required: false,
+              widget: list,
+              label_singular: "logo",
+              field: { name: logo, label: Logo, widget: image },
+            }
+      - file: "src/content/translated-article.md"
+        label: "O mniejszościach i większościach"
+        name: "translated-article"
+        fields:
+          - { label: "Nagłówek", name: "title", widget: string }
+          - { label: "Autor", name: "author", widget: string }
+          - { label: "Główna treść", name: "content", widget: markdown }
+          - { name: translator, label: "Tłumacz", widget: string }
+    
+  - name: settings
+    label: "Pozostałe teksty"
+    delete: false
+    files:
+      - name: "title"
+        label: "Tytuł projektu"
+        file: "src/content/metadata.json"
+        fields:
+          - { name: "title_pl", label: "Polski tytuł", widget: string }
+          - { name: "title_cz", label: "Czeski tytuł", widget: string }
