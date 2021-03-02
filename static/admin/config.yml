@@ -37,7 +37,7 @@ collections:
               label_singular: "termin spotkania",
               default: ["dates"],
               field:
-                { label: "spotkanie", name: "spotkanie", widget: "string" },
+                { label: "spotkanie", name: "Spotkanie", widget: "string" },
             }
           - {
               name: patrons,
