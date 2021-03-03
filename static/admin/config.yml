@@ -24,6 +24,7 @@ collections:
               label: "Dodatek do nazwy",
               widget: string,
               hint: "Np. lokalizacja geograficzna mniejszości",
+              required: false,
             }
       - { name: type, label: "Typ", widget: hidden, default: "single-minority" }
       - { name: content, label: "Główna treść", widget: markdown }
@@ -68,7 +69,12 @@ collections:
           - { label: "Autor", name: "author", widget: string }
           - { label: "Tytuł", name: "title", widget: string }
           - { label: "Główna treść", name: "content", widget: markdown }
-          - { name: translator, label: "Tłumacz", widget: string }
+          - {
+              name: translator,
+              label: "Tłumacz",
+              widget: string,
+              required: false,
+            }
 
   - name: settings
     label: "Pozostałe teksty"
