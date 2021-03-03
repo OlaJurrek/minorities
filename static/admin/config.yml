@@ -7,7 +7,6 @@ media_folder: static/images/uploads
 public_folder: /images/uploads
 
 collections:
-
   - name: minorities
     label: Strony mniejszości
     label_singular: strona mniejszości
@@ -16,6 +15,7 @@ collections:
     fields:
       - { name: path, label: Ścieżka }
       - { name: title, label: "Nazwa mniejszości" }
+      - { name: type, label: "Typ", widget: hidden, default: "minorities" }
       - { name: content, label: "Główna treść", widget: markdown }
       - { name: image, label: Obrazek, required: false, widget: image }
 
@@ -28,7 +28,11 @@ collections:
         fields:
           - { label: "Główny nagłówek", name: "title", widget: string }
           - { label: "Opis projektu", name: "text", widget: markdown }
-          - { label: "Nagłówek terminów spotkań", name: "dates-header", widget: string }
+          - {
+              label: "Nagłówek terminów spotkań",
+              name: "dates-header",
+              widget: string,
+            }
           - {
               name: "dates",
               label: "Terminy spotkań",
@@ -55,7 +59,7 @@ collections:
           - { label: "Tytuł", name: "title", widget: string }
           - { label: "Główna treść", name: "content", widget: markdown }
           - { name: translator, label: "Tłumacz", widget: string }
-    
+
   - name: settings
     label: "Pozostałe teksty"
     delete: false
