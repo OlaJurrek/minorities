@@ -7,7 +7,13 @@
 module.exports = {
   /* Your site config here */
   plugins: [
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        enableIdentityWidget: true,
+      },
+    },
+    "gatsby-plugin-netlify-identity-widget",
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
