@@ -13,8 +13,18 @@ collections:
     folder: "src/content/minorities"
     create: true
     fields:
-      - { name: path, label: Ścieżka }
-      - { name: title, label: "Nazwa mniejszości" }
+      - { name: path, label: "Ścieżka do strony" }
+      - name: title
+        label: "Nazwa mniejszości"
+        widget: object
+        fields:
+          - { name: mainTitle, label: "Nazwa", widget: string }
+          - {
+              name: subtitle,
+              label: "Dodatek do nazwy",
+              widget: string,
+              hint: "Np. lokalizacja geograficzna mniejszości",
+            }
       - { name: type, label: "Typ", widget: hidden, default: "single-minority" }
       - { name: content, label: "Główna treść", widget: markdown }
       - { name: image, label: Obrazek, required: false, widget: image }
