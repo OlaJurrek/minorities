@@ -139,7 +139,7 @@ export default function Sidebar() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <Link to="/minority">Romowie</Link>
+              <Link to="/romowie">Romowie</Link>
             </div>
           </li>
           <li>
@@ -155,7 +155,7 @@ export default function Sidebar() {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >
-              <Link to="/minority">Wietnamczycy</Link>
+              <Link to="/wietnamczycy">Wietnamczycy</Link>
             </div>
           </li>
           <li>

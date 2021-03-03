@@ -15,7 +15,7 @@ collections:
     fields:
       - { name: path, label: Ścieżka }
       - { name: title, label: "Nazwa mniejszości" }
-      - { name: type, label: "Typ", widget: hidden, default: "minorities" }
+      - { name: type, label: "Typ", widget: hidden, default: "single-minority" }
       - { name: content, label: "Główna treść", widget: markdown }
       - { name: image, label: Obrazek, required: false, widget: image }
 
