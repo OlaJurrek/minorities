@@ -1,5 +1,5 @@
 ---
-path: Żydzi w Polsce
+path: Żydzi w Rzeczypospolitej
 title: Żydzi
 titleAddition: w Polsce
 type: single-minority
