@@ -14,6 +14,7 @@ collections:
     create: true
     fields:
       - { name: path, label: "Ścieżka do strony" }
+      - identifier_field: path
       - name: title
         label: "Nazwa mniejszości"
         widget: object
