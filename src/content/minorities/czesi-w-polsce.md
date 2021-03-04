@@ -1,7 +1,7 @@
 ---
-path: Czesi w Polsce
-title: Czesi
-titleAddition: w Polsce
+path: polacy
+title: Polacy
+titleAddition: w Czechach
 type: single-minority
 ---
 ## lala
