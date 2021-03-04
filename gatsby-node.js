@@ -6,15 +6,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     {
       allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/minorities/" } }
+        filter: { frontmatter: { type: { in: "single-minority" } } }
       ) {
         edges {
           node {
             frontmatter {
               path
               title
-              content
+              titleAddition
             }
+            html
           }
         }
       }

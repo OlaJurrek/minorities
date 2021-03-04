@@ -14,16 +14,22 @@ slug:
 collections:
   - name: minorities
     label: Strony mniejszości
-    label_singular: strona mniejszości
     folder: "src/content/minorities"
-    slug: "{{path}}"
+    label_singular: strona mniejszości
+    identifier_field: path
+    summary: "{{title}} {{titleAddition}}"
     create: true
     fields:
       - {
           name: path,
           label: "Ostatnia część ścieżki do strony",
-          hint: "Np. mniejszosci-w-polsce",
+          hint: "Nie używaj diakretyków, wielkich liter ani spacji, pojedyncze słowa łącz myślnikami, np. mniejszosci-w-polsce",
           widget: string,
+          pattern:
+            [
+              "^[a-z]+(-[a-z]+)*$",
+              "tylko małe litery, bez spacji, bez diakretyków",
+            ],
         }
       - { name: title, label: "Nazwa mniejszości", widget: string }
       - {

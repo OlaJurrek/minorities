@@ -7,13 +7,14 @@ import LanguageNav from "../molecules/language-nav";
 
 const MinorityPage = ({ data }) => {
   if (data) {
-    const { markdownRemark } = data;
-    const { frontmatter } = markdownRemark;
+    // console.log(data);
+    // const { markdownRemark } = data;
+    // const { frontmatter } = markdownRemark;
     return (
       <Layout>
         <LanguageNav />
-        <Headline text={frontmatter.title} />
-        <Paragraph text={frontmatter.content} />
+        {/* <Headline text={frontmatter.title} /> */}
+        {/* <Paragraph text={frontmatter.content} /> */}
       </Layout>
     );
   }
@@ -23,10 +24,11 @@ export const pageQuery = graphql`
   query($slug: String!) {
     markdownRemark(frontmatter: { path: { eq: $slug } }) {
       frontmatter {
-        content
         path
         title
+        titleAddition
       }
+      html
     }
   }
 `;
