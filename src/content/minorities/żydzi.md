@@ -1,10 +1,10 @@
 ---
 path: zydzi
-title:
-  mainTitle: Żydzi
+title: Żydzi
+titleAddition: w Polsce
 type: single-minority
 content: >-
-  
+
 
   **Pierwsze wzmianki o Żydach na terenach polskich** pochodzą z X wieku, a pierwszym oficjalnym polskim dokumentem nadającym Żydom przywileje i autonomię był statut kaliski z XIII wieku.
 

@@ -11,24 +11,25 @@ collections:
     label: Strony mniejszości
     label_singular: strona mniejszości
     folder: "src/content/minorities"
+    slug: "{{path}}"
     create: true
     fields:
-      - { name: path, label: "Ścieżka do strony" }
-      - identifier_field: path
-      - name: title
-        label: "Nazwa mniejszości"
-        widget: object
-        fields:
-          - { name: mainTitle, label: "Nazwa", widget: string }
-          - {
-              name: subtitle,
-              label: "Dodatek do nazwy",
-              widget: string,
-              hint: "Np. lokalizacja geograficzna mniejszości",
-              required: false,
-            }
+      - {
+          name: path,
+          label: "Ostatnia część ścieżki do strony",
+          hint: "Np. mniejszosci-w-polsce",
+          widget: string,
+        }
+      - { name: title, label: "Nazwa mniejszości", widget: string }
+      - {
+          name: titleAddition,
+          label: "Dodatek do nazwy mniejszości",
+          widget: string,
+          hint: "Np. lokalizacja geograficzna mniejszości",
+          required: false,
+        }
       - { name: type, label: "Typ", widget: hidden, default: "single-minority" }
-      - { name: content, label: "Główna treść", widget: markdown }
+      - { name: body, label: "Główna treść", widget: markdown }
       - { name: image, label: Obrazek, required: false, widget: image }
 
   - name: pages
@@ -38,8 +39,8 @@ collections:
         label: "O projekcie"
         name: "about"
         fields:
-          - { label: "Główny nagłówek", name: "title", widget: string }
-          - { label: "Opis projektu", name: "text", widget: markdown }
+          - { label: "Główny nagłówek", name: title, widget: string }
+          - { label: "Opis projektu", name: body, widget: markdown }
           - {
               label: "Nagłówek terminów spotkań",
               name: "dates-header",
@@ -69,7 +70,7 @@ collections:
         fields:
           - { label: "Autor", name: "author", widget: string }
           - { label: "Tytuł", name: "title", widget: string }
-          - { label: "Główna treść", name: "content", widget: markdown }
+          - { label: "Główna treść", name: body, widget: markdown }
           - {
               name: translator,
               label: "Tłumacz",
