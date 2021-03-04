@@ -1,10 +1,10 @@
 ---
-path: zydzi
+path: Żydzi w Polsce
 title: Żydzi
 titleAddition: w Polsce
 type: single-minority
 content: >-
-
+  
 
   **Pierwsze wzmianki o Żydach na terenach polskich** pochodzą z X wieku, a pierwszym oficjalnym polskim dokumentem nadającym Żydom przywileje i autonomię był statut kaliski z XIII wieku.
 
@@ -50,3 +50,6 @@ content: >-
 
   * Spotkania z Kulturą Żydowską Simha we Wrocławiu.
 ---
+**Pierwsze wzmianki o Żydach na terenach polskich pochodzą z X wieku, a pierwszym oficjalnym polskim dokumentem nadającym Żydom przywileje i autonomię był statut kaliski z XIII wieku.**
+
+Żydzi to mniejszość narodowa, do której przynależność podczas przeprowadzonego w 2011 r. Narodowego spisu powszechnego ludności i mieszkań zadeklarowało 7 353 obywateli polskich (wedle danych poprzedniego Narodowego spisu powszechnego z 2002 r. liczebność mniejszości żydowskiej wynosiła 1 055 osób), w tym: w województwie mazowieckim – 2.690 osób (według Narodowego Spisu Powszechnego Ludności i Mieszkań z 2002 r. – 397), dolnośląskim – 880 (według Narodowego Spisu Powszechnego Ludności i Mieszkań z 2002 r. – 204), małopolskim – 745 (według Narodowego Spisu Powszechnego Ludności i Mieszkań z 2002 r. – 50). Żydzi mieszkają w rozproszeniu, przede wszystkim w dużych miastach.
