@@ -6,18 +6,17 @@ import Paragraph from "../atoms/paragraph";
 import LanguageNav from "../molecules/language-nav";
 
 const MinorityPage = ({ data }) => {
-  if (data) {
-    // console.log(data);
-    // const { markdownRemark } = data;
-    // const { frontmatter } = markdownRemark;
-    return (
-      <Layout>
-        <LanguageNav />
-        {/* <Headline text={frontmatter.title} /> */}
-        {/* <Paragraph text={frontmatter.content} /> */}
-      </Layout>
-    );
-  }
+  const { markdownRemark } = data;
+  const { frontmatter, html } = markdownRemark;
+  const title = `${frontmatter.title} ${frontmatter.titleAddition}`;
+  return (
+    <Layout>
+      <LanguageNav />
+      <Headline text={title} />
+      {/* <Paragraph text={frontmatter.html} /> */}
+      <div dangerouslySetInnerHTML={{ __html: html }}></div>
+    </Layout>
+  );
 };
 
 export const pageQuery = graphql`

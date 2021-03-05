@@ -18,4 +18,5 @@ dates:
 patrons:
   - /images/uploads/ispan-logo.svg
   - /images/uploads/cc_logo.jpg
+type: other
 ---

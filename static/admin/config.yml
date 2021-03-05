@@ -6,11 +6,6 @@ backend:
 media_folder: static/images/uploads
 public_folder: /images/uploads
 
-slug:
-  encoding: "ascii"
-  clean_accents: true
-  sanitize_replacement: "-"
-
 collections:
   - name: minorities
     label: Strony mniejszości
@@ -40,7 +35,12 @@ collections:
           required: false,
         }
       - { name: type, label: "Typ", widget: hidden, default: "single-minority" }
-      - { name: body, label: "Główna treść", widget: markdown }
+      - {
+          name: body,
+          label: "Główna treść",
+          widget: markdown,
+          hint: "Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2",
+        }
       - { name: image, label: Obrazek, required: false, widget: image }
 
   - name: pages
@@ -51,7 +51,13 @@ collections:
         name: "about"
         fields:
           - { label: "Główny nagłówek", name: title, widget: string }
-          - { label: "Opis projektu", name: body, widget: markdown }
+          - {
+              label: "Opis projektu",
+              name: body,
+              widget: markdown,
+              hint: "Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2",
+            }
+          - { name: type, label: "Typ", widget: hidden, default: "other" }
           - {
               label: "Nagłówek terminów spotkań",
               name: "dates-header",
@@ -81,7 +87,13 @@ collections:
         fields:
           - { label: "Autor", name: "author", widget: string }
           - { label: "Tytuł", name: "title", widget: string }
-          - { label: "Główna treść", name: body, widget: markdown }
+          - {
+              label: "Główna treść",
+              name: body,
+              widget: markdown,
+              hint: "Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2",
+            }
+          - { name: type, label: "Typ", widget: hidden, default: "other" }
           - {
               name: translator,
               label: "Tłumacz",
@@ -90,7 +102,7 @@ collections:
             }
 
   - name: settings
-    label: "Pozostałe teksty"
+    label: "Inne teksty"
     delete: false
     files:
       - name: "title"
