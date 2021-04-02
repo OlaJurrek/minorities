@@ -1,4 +1,6 @@
 ---
+type: about
+language: pl
 title: O projekcie
 dates-header: Terminy i miejsca spotkań
 dates:
@@ -7,9 +9,6 @@ dates:
 patrons:
   - /images/uploads/ispan-logo.svg
   - /images/uploads/cc_logo.jpg
-type: other
-templateKey: components/pages/about
-language: pl
 ---
 
 Polska była krajem zróżnicowanym etnicznie i religijnie w ciągu całej swojej

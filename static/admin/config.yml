@@ -53,13 +53,7 @@ collections:
         label: "O projekcie"
         name: "aboutPL"
         fields:
-          - {
-              label: Template Key,
-              name: templateKey,
-              widget: hidden,
-              default: components/pages/about,
-            }
-          - { name: type, label: "Typ", widget: hidden, default: "other" }
+          - { name: type, label: "Typ", widget: hidden, default: about }
           - { label: Language, name: language, widget: hidden, default: pl }
           - { label: "Główny nagłówek", name: title, widget: string }
           - {
@@ -166,13 +160,7 @@ collections:
         label: "O projektě"
         name: "aboutCZ"
         fields:
-          - {
-              label: Template Key,
-              name: templateKey,
-              widget: hidden,
-              default: components/pages/about,
-            }
-          - { name: type, label: Type, widget: hidden, default: "other" }
+          - { name: type, label: Type, widget: hidden, default: about }
           - { label: Language, name: language, widget: hidden, default: cz }
           - { label: "Hlavní nadpis", name: title, widget: string }
           - {
