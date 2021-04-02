@@ -11,100 +11,98 @@ collections:
   #--------- Strony mniejszości - PL --------------
   - name: minoritiesPL
     label: Strony mniejszości - PL
-    folder: "src/content/pl/minorities"
+    folder: 'src/content/pl'
     label_singular: strona mniejszości
     identifier_field: path
-    summary: "{{title}} {{titleAddition}}"
+    summary: '{{title}} {{titleAddition}}'
     create: true
     fields:
-      - { label: Language, name: language, widget: hidden, default: pl }
-      - { name: type, label: "Typ", widget: hidden, default: "single-minority" }
+      - { name: type, label: 'Typ', widget: hidden, default: 'single-minority' }
+      - {
+          name: group-identifier,
+          label: 'Identyfikator grupy na potrzeby zmiany języka strony',
+          widget: string,
+          hint: 'Użyj wyłącznie małych liter, bez diakretyków',
+          pattern: ['[a-z]', 'tylko małe litery, bez spacji, bez diakretyków'],
+        }
       - {
           name: path,
-          label: "Ostatnia część ścieżki do strony",
-          hint: "Nie używaj diakretyków, wielkich liter ani spacji, pojedyncze słowa łącz myślnikami, np. mniejszosci-w-polsce",
+          label: 'Ostatnia część ścieżki do strony',
+          hint: 'Nie używaj diakretyków, wielkich liter ani spacji, pojedyncze słowa łącz myślnikami, np. mniejszosci-w-polsce',
           widget: string,
           pattern:
             [
-              "^[a-z]+(-[a-z]+)*$",
-              "tylko małe litery, bez spacji, bez diakretyków",
+              '^[a-z]+(-[a-z]+)*$',
+              'tylko małe litery, bez spacji, bez diakretyków',
             ],
         }
-      - { name: title, label: "Nazwa mniejszości", widget: string }
+      - { name: title, label: 'Nazwa mniejszości', widget: string }
       - {
           name: titleAddition,
-          label: "Dodatek do nazwy mniejszości",
+          label: 'Dodatek do nazwy mniejszości',
           widget: string,
-          hint: "Np. lokalizacja geograficzna mniejszości",
+          hint: 'Np. lokalizacja geograficzna mniejszości',
           required: false,
         }
       - {
           name: body,
-          label: "Główna treść",
+          label: 'Główna treść',
           widget: markdown,
-          hint: "Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2",
+          hint: 'Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2',
         }
       - { name: image, label: Obrazek, required: false, widget: image }
 
   - name: pagesPL
     label: Pozostałe strony - PL
     files:
-      - file: "src/content/pl/main-pages/o-projekcie.md"
-        label: "O projekcie"
-        name: "aboutPL"
+      - file: 'src/content/pl/o-projekcie.md'
+        label: 'O projekcie'
+        name: 'aboutPL'
         fields:
-          - { name: type, label: "Typ", widget: hidden, default: about }
-          - { label: Language, name: language, widget: hidden, default: pl }
-          - { label: "Główny nagłówek", name: title, widget: string }
+          - { name: type, label: 'Typ', widget: hidden, default: about }
+          - { label: 'Główny nagłówek', name: title, widget: string }
           - {
-              label: "Opis projektu",
+              label: 'Opis projektu',
               name: body,
               widget: markdown,
-              hint: "Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2",
+              hint: 'Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2',
             }
           - {
-              label: "Nagłówek terminów spotkań",
-              name: "dates-header",
+              label: 'Nagłówek terminów spotkań',
+              name: 'dates-header',
               widget: string,
             }
           - {
-              name: "dates",
-              label: "Terminy spotkań",
+              name: 'dates',
+              label: 'Terminy spotkań',
               required: false,
-              widget: "list",
-              label_singular: "termin spotkania",
-              default: ["dates"],
+              widget: 'list',
+              label_singular: 'termin spotkania',
+              default: ['dates'],
               field:
-                { label: "spotkanie", name: "Spotkanie", widget: "string" },
+                { label: 'spotkanie', name: 'Spotkanie', widget: 'string' },
             }
           - {
               name: patrons,
-              label: "Loga patronów",
+              label: 'Loga patronów',
               required: false,
               widget: list,
-              label_singular: "logo",
+              label_singular: 'logo',
               field: { name: logo, label: Logo, widget: image },
             }
       #----- O mniejszościach i większościach - PL -------
-      - file: "src/content/pl/main-pages/o-mniejszosciach-i-wiekszosciach.md"
-        label: "O mniejszościach i większościach"
-        name: "translated-articlePL"
+      - file: 'src/content/pl/o-mniejszosciach-i-wiekszosciach.md'
+        label: 'O mniejszościach i większościach'
+        name: 'translated-articlePL'
         fields:
-          - {
-              label: Template Key,
-              name: templateKey,
-              widget: hidden,
-              default: components/pages/article,
-            }
-          - { name: type, label: Typ, widget: hidden, default: other }
-          - { label: Language, name: language, widget: hidden, default: pl }
+          - { name: type, label: Typ, widget: hidden, default: article }
           - { label: Autor, name: author, widget: string }
           - { label: Tytuł, name: title, widget: string }
           - {
               label: Główna treść,
               name: body,
               widget: markdown,
-              hint: "Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2",
+              hint: 'Jeśli potrzebujesz użyć nagłówków, zacznij od poziomu 2',
             }
           - {
               name: translator,
@@ -117,38 +115,44 @@ collections:
   #--------- Strony mniejszości - CZ --------------
   - name: minoritiesCZ
     label: Stránky menšin - CZ
-    folder: "src/content/cz/minorities"
+    folder: 'src/content/cz'
     label_singular: stránka menšiny
     identifier_field: path
-    summary: "{{title}} {{titleAddition}}"
+    summary: '{{title}} {{titleAddition}}'
     create: true
     fields:
-      - { label: Language, name: language, widget: hidden, default: cz }
+      - {
+          name: group-identifier,
+          label: 'Identifikátor skupiny potřebný ke změně jazyka stránky',
+          widget: string,
+          hint: 'Používej pouze malá písmena bez diakritiky',
+          pattern: ['[a-z]', 'pouze malá písmena, bez mezer a diakritiky'],
+        }
       - {
           name: path,
-          label: "Poslední část adresu stránky",
-          hint: "Nepoužívej diakritiku, velká písmena a mezery, jednotlivá slova spojuj pomlčkou, např. mensiny-v-cechach",
+          label: 'Poslední část adresu stránky',
+          hint: 'Nepoužívej diakritiku, velká písmena a mezery, jednotlivá slova spojuj pomlčkou, např. mensiny-v-cechach',
           widget: string,
           pattern:
             [
-              "^[a-z]+(-[a-z]+)*$",
-              "pouze malá písmena, bez mezer a diakritiky",
+              '^[a-z]+(-[a-z]+)*$',
+              'pouze malá písmena, bez mezer a diakritiky',
             ],
         }
       - { name: title, label: Název menšiny, widget: string }
       - {
           name: titleAddition,
-          label: "Dodatek ke názvu",
+          label: 'Dodatek ke názvu',
           widget: string,
-          hint: "Např. geografická lokalizace menšiny",
+          hint: 'Např. geografická lokalizace menšiny',
           required: false,
         }
-      - { name: type, label: Type, widget: hidden, default: "single-minority" }
+      - { name: type, label: Type, widget: hidden, default: 'single-minority' }
       - {
           name: body,
           label: Hlavní obsah,
           widget: markdown,
-          hint: "Pokud potřebuješ použít nadpis, začni od 2. úrovně",
+          hint: 'Pokud potřebuješ použít nadpis, začni od 2. úrovně',
         }
       - { name: image, label: Obrázek, required: false, widget: image }
 
@@ -156,61 +160,53 @@ collections:
     label: Ostatní stránky - CZ
     files:
       #--------- O projekcie - CZ ----------------
-      - file: "src/content/cz/main-pages/o-projekte.md"
-        label: "O projektě"
-        name: "aboutCZ"
+      - file: 'src/content/cz/o-projekte.md'
+        label: 'O projektě'
+        name: 'aboutCZ'
         fields:
           - { name: type, label: Type, widget: hidden, default: about }
-          - { label: Language, name: language, widget: hidden, default: cz }
-          - { label: "Hlavní nadpis", name: title, widget: string }
+          - { label: 'Hlavní nadpis', name: title, widget: string }
           - {
-              label: "Popis projektu",
+              label: 'Popis projektu',
               name: body,
               widget: markdown,
-              hint: "Pokud potřebuješ použít nadpis, začni od 2. úrovně",
+              hint: 'Pokud potřebuješ použít nadpis, začni od 2. úrovně',
             }
           - {
-              label: "Nadpis termínů setkání",
-              name: "dates-header",
+              label: 'Nadpis termínů setkání',
+              name: 'dates-header',
               widget: string,
             }
           - {
-              name: "dates",
-              label: "Termíny setkání",
+              name: 'dates',
+              label: 'Termíny setkání',
               required: false,
-              widget: "list",
-              label_singular: "termín setkání",
-              default: ["dates"],
-              field: { label: "spotkanie", name: "Setkání", widget: "string" },
+              widget: 'list',
+              label_singular: 'termín setkání',
+              default: ['dates'],
+              field: { label: 'spotkanie', name: 'Setkání', widget: 'string' },
             }
           - {
               name: patrons,
-              label: "Loga organizací",
+              label: 'Loga organizací',
               required: false,
               widget: list,
-              label_singular: "logo",
+              label_singular: 'logo',
               field: { name: logo, label: Logo, widget: image },
             }
       #----- O mniejszościach i większościach - CZ -------
-      - file: "src/content/cz/main-pages/vetsina-mensina.md"
-        label: "Většiny, mešiny"
-        name: "translated-articleCZ"
+      - file: 'src/content/cz/vetsina-mensina.md'
+        label: 'Většiny, mešiny'
+        name: 'translated-articleCZ'
         fields:
-          - {
-              label: Template Key,
-              name: templateKey,
-              widget: hidden,
-              default: components/pages/article,
-            }
-          - { name: type, label: Type, widget: hidden, default: "other" }
-          - { label: Language, name: language, widget: hidden, default: cz }
+          - { name: type, label: Type, widget: hidden, default: article }
           - { label: Autor, name: author, widget: string }
           - { label: Název, name: title, widget: string }
           - {
               label: Hlavní obsah,
               name: body,
               widget: markdown,
-              hint: "Pokud potřebuješ použít nadpis, začni od 2. úrovně",
+              hint: 'Pokud potřebuješ použít nadpis, začni od 2. úrovně',
             }
           - {
               name: translator,
@@ -221,12 +217,12 @@ collections:
 
   #---------------------- Other ------------------------
   - name: settings
-    label: "Inne teksty"
+    label: 'Inne teksty'
     delete: false
     files:
-      - name: "title"
-        label: "Tytuł projektu"
-        file: "src/content/metadata.json"
+      - name: 'title'
+        label: 'Tytuł projektu'
+        file: 'src/content/metadata.json'
         fields:
-          - { name: "title_pl", label: "Polski tytuł", widget: string }
-          - { name: "title_cz", label: "Czeski tytuł", widget: string }
+          - { name: 'title_pl', label: 'Polski tytuł', widget: string }
+          - { name: 'title_cz', label: 'Czeski tytuł', widget: string }

@@ -1,10 +1,8 @@
 ---
+type: article
 title: O mniejszościach i większościach
 author: Erazim Kohák
 translator: Przełożył Maciej Mętrak
-type: other
-templateKey: components/pages/article
-language: pl
 ---
 
 Erazim Kohák (ur. 1933 w Pradze), filozof, teolog ewangelicki i publicysta, w

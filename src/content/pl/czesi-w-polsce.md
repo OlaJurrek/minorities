@@ -1,9 +1,9 @@
 ---
+type: single-minority
 path: czesi-w-polsce
+group-identifier: czech
 title: Czesi
 titleAddition: w Polsce
-type: single-minority
-language: pl
 ---
 
 ### czesi!

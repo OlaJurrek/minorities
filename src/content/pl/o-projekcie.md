@@ -1,6 +1,5 @@
 ---
 type: about
-language: pl
 title: O projekcie
 dates-header: Terminy i miejsca spotkań
 dates:

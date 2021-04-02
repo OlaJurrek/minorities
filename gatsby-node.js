@@ -1,20 +1,39 @@
-const path = require("path");
+const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === 'MarkdownRemark') {
+    let slug = createFilePath({ node, getNode, basePath: 'content' });
+    const lang = slug.slice(1, 3);
+    slug = slug.slice(4);
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    });
+    createNodeField({
+      node,
+      name: 'lang',
+      value: lang,
+    });
+  }
+};
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const minorityTemplate = path.resolve(
-    `./src/components/templates/minority.js`
-  );
-  const minorityPages = await graphql(`
+
+  const pages = await graphql(`
     {
-      allMarkdownRemark(
-        filter: { frontmatter: { type: { eq: "single-minority" } } }
-      ) {
+      allMarkdownRemark {
         edges {
           node {
+            fields {
+              lang
+              slug
+            }
             frontmatter {
-              path
-              language
+              type
             }
           }
         }
@@ -22,22 +41,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     }
   `);
 
-  if (minorityPages.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query - minorities md.`);
+  if (pages.errors) {
+    reporter.panicOnBuild(`Error while running GraphQL query - markdown pages`);
     return;
   }
 
-  minorityPages.data.allMarkdownRemark.edges.forEach(edge => {
+  pages.data.allMarkdownRemark.edges.forEach(edge => {
     const prefix =
-      edge.node.frontmatter.language.toLowerCase() === "pl"
-        ? ""
-        : edge.node.frontmatter.language.toLowerCase();
+      edge.node.fields.lang === 'pl' ? '' : edge.node.fields.lang + '/';
     createPage({
-      path: prefix + "/" + edge.node.frontmatter.path,
-      component: minorityTemplate,
+      path: prefix + edge.node.fields.slug,
+      component: path.resolve(
+        `./src/components/templates/${edge.node.frontmatter.type}.js`
+      ),
       context: {
-        slug: edge.node.frontmatter.path,
-        nodeLocale: edge.node.frontmatter.language,
+        slug: edge.node.fields.slug,
+        nodeLocale: edge.node.fields.lang,
       },
     });
   });

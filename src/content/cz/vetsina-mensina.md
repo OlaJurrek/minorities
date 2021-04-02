@@ -1,10 +1,8 @@
 ---
+type: article
 title: O mensinach a vetsinach
 author: Erazim Kohák
 translator: Prelozil Maciej Mętrak
-type: other
-templateKey: components/pages/article
-language: cz
 ---
 
 Erazim Kohák (ur. 1933 w Pradze), filozof, teolog ewangelicki i publicysta, w
