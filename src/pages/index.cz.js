@@ -57,7 +57,7 @@ const IntroPage = () => (
   <>
     <GlobalStyle />
     <Intro>
-      <AnimatedTitle />
+      <AnimatedTitle title="My - menšiny" />
       <nav>
         <NavigationList>
           {minorityGroups.map((minority, index) => (

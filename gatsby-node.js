@@ -1,9 +1,11 @@
+const path = require("path");
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
-  const minorityPage = require.resolve(
+  const minorityTemplate = path.resolve(
     `./src/components/templates/minority.js`
   );
-  const result = await graphql(`
+  const minorityPages = await graphql(`
     {
       allMarkdownRemark(
         filter: { frontmatter: { type: { eq: "single-minority" } } }
@@ -12,24 +14,30 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           node {
             frontmatter {
               path
+              language
             }
           }
         }
       }
     }
   `);
-  // Handle errors
-  if (result.errors) {
+
+  if (minorityPages.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query - minorities md.`);
     return;
   }
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+
+  minorityPages.data.allMarkdownRemark.edges.forEach(edge => {
+    const prefix =
+      edge.node.frontmatter.language.toLowerCase() === "pl"
+        ? ""
+        : edge.node.frontmatter.language.toLowerCase();
     createPage({
-      path: node.frontmatter.path,
-      component: minorityPage,
+      path: prefix + "/" + edge.node.frontmatter.path,
+      component: minorityTemplate,
       context: {
-        // additional data can be passed via context
-        slug: node.frontmatter.path,
+        slug: edge.node.frontmatter.path,
+        nodeLocale: edge.node.frontmatter.language,
       },
     });
   });

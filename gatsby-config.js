@@ -15,13 +15,13 @@ module.exports = {
     },
     "gatsby-plugin-netlify-identity-widget",
     `gatsby-plugin-styled-components`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `minorities-pages`,
-        path: `${__dirname}/src/content/minorities/`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `minorities-pages`,
+    //     path: `${__dirname}/src/content/minorities/`,
+    //   },
+    // },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -30,6 +30,14 @@ module.exports = {
       },
     },
     `gatsby-transformer-remark`,
+    {
+      resolve: "gatsby-plugin-i18n",
+      options: {
+        langKeyDefault: "pl",
+        useLangKeyLayout: false,
+        prefixDefault: false,
+      },
+    },
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {

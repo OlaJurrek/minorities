@@ -13,9 +13,9 @@ const Title = styled.h1`
   }
 `;
 
-const AnimatedTitle = () => (
+const AnimatedTitle = ({ title }) => (
   <Title>
-    <Link to="/about/">My - menšiny</Link>
+    <Link to="/about/">{title}</Link>
   </Title>
 );
 
