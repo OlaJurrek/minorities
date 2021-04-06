@@ -2,7 +2,7 @@
 type: article
 author: Erazim Kohák
 title: O mensinach a vetsinach
-translator: ""
+translator: ''
 ---
 
 Rodiče za války patřili k nekomunistickému odboji a byli vězněni gestapem. Po válce byl Kohák členem 118. skautského oddílu, kde získal přezdívku Jezevec.[5]

@@ -1,27 +1,29 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../layout';
+import Layout from '../templates/layout';
 import Headline from '../atoms/headline';
 import Paragraph from '../atoms/paragraph';
 
-const AboutProject = ({ data }) => {
-  const { markdownRemark } = data;
+export default function AboutProject(props) {
+  console.log(props);
+  const { markdownRemark } = props.data;
   const {
     frontmatter: { title, dates, datesHeader, patrons },
     html,
   } = markdownRemark;
+
   return (
-    <Layout>
+    <Layout location={props.location} currentLang={props.pageContext.language}>
       <Headline text={title} />
       <div dangerouslySetInnerHTML={{ __html: html }}></div>
-      <Paragraph text={datesHeader} />
+      {dates.length > 0 && <Paragraph text={datesHeader} />}
     </Layout>
   );
-};
+}
 
 export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query($originalSlug: String!) {
+    markdownRemark(fields: { originalSlug: { eq: $originalSlug } }) {
       frontmatter {
         title
         dates
@@ -32,5 +34,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-export default AboutProject;

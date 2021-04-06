@@ -1,28 +1,26 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../layout';
+import Layout from '../templates/layout';
 import Headline from '../atoms/headline';
 import Paragraph from '../atoms/paragraph';
-import LanguageNav from '../molecules/language-nav';
 
-const MinorityPage = ({ data }) => {
-  console.log(data);
-  const { markdownRemark } = data;
+export default function MinorityPage(props) {
+  console.log(props);
+  const { markdownRemark } = props.data;
   const { frontmatter, html } = markdownRemark;
   const title = `${frontmatter.title} ${frontmatter.titleAddition}`;
   return (
-    <Layout>
-      <LanguageNav />
+    <Layout location={props.location} currentLang={props.pageContext.language}>
       <Headline text={title} />
       {/* <Paragraph text={frontmatter.html} /> */}
       <div dangerouslySetInnerHTML={{ __html: html }}></div>
     </Layout>
   );
-};
+}
 
 export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query($originalSlug: String!) {
+    markdownRemark(fields: { originalSlug: { eq: $originalSlug } }) {
       frontmatter {
         path
         title
@@ -32,5 +30,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-export default MinorityPage;

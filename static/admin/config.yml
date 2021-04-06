@@ -11,7 +11,7 @@ collections:
   #--------- Strony mniejszości - PL --------------
   - name: minoritiesPL
     label: Strony mniejszości - PL
-    folder: 'src/content/pl'
+    folder: 'src/content/pl/minorities'
     label_singular: strona mniejszości
     identifier_field: path
     summary: '{{title}} {{titleAddition}}'
@@ -19,16 +19,9 @@ collections:
     fields:
       - { name: type, label: 'Typ', widget: hidden, default: 'single-minority' }
       - {
-          name: group-identifier,
-          label: 'Identyfikator grupy na potrzeby zmiany języka strony',
-          widget: string,
-          hint: 'Użyj wyłącznie małych liter, bez diakretyków',
-          pattern: ['[a-z]', 'tylko małe litery, bez spacji, bez diakretyków'],
-        }
-      - {
           name: path,
           label: 'Ostatnia część ścieżki do strony',
-          hint: 'Nie używaj diakretyków, wielkich liter ani spacji, pojedyncze słowa łącz myślnikami, np. mniejszosci-w-polsce',
+          hint: 'Musi być taka sama dla obu języków - identyfikuje strony przy zmianie języka. Nie używaj diakretyków, wielkich liter ani spacji, pojedyncze słowa łącz myślnikami, np. czesi-w-polsce',
           widget: string,
           pattern:
             [
@@ -92,7 +85,7 @@ collections:
               field: { name: logo, label: Logo, widget: image },
             }
       #----- O mniejszościach i większościach - PL -------
-      - file: 'src/content/pl/o-mniejszosciach-i-wiekszosciach.md'
+      - file: 'src/content/pl/erazim-kohak.md'
         label: 'O mniejszościach i większościach'
         name: 'translated-articlePL'
         fields:
@@ -117,23 +110,16 @@ collections:
   #--------- Strony mniejszości - CZ --------------
   - name: minoritiesCZ
     label: Stránky menšin - CZ
-    folder: 'src/content/cz'
+    folder: 'src/content/cz/minorities'
     label_singular: stránka menšiny
     identifier_field: path
     summary: '{{title}} {{titleAddition}}'
     create: true
     fields:
       - {
-          name: group-identifier,
-          label: 'Identifikátor skupiny potřebný ke změně jazyka stránky',
-          widget: string,
-          hint: 'Používej pouze malá písmena bez diakritiky',
-          pattern: ['[a-z]', 'pouze malá písmena, bez mezer a diakritiky'],
-        }
-      - {
           name: path,
           label: 'Poslední část adresu stránky',
-          hint: 'Nepoužívej diakritiku, velká písmena a mezery, jednotlivá slova spojuj pomlčkou, např. mensiny-v-cechach',
+          hint: 'Musí být stejná pro oba jazyky - identifikuje stránky při změně jazyka. Nepoužívej diakritiku, velká písmena a mezery, jednotlivá slova spojuj pomlčkou, např. czesi-w-polsce',
           widget: string,
           pattern:
             [
@@ -162,7 +148,7 @@ collections:
     label: Ostatní stránky - CZ
     files:
       #--------- O projekcie - CZ ----------------
-      - file: 'src/content/cz/o-projekte.md'
+      - file: 'src/content/cz/o-projekcie.md'
         label: 'O projektě'
         name: 'aboutCZ'
         fields:
@@ -197,7 +183,7 @@ collections:
               field: { name: logo, label: Logo, widget: image },
             }
       #----- O mniejszościach i większościach - CZ -------
-      - file: 'src/content/cz/vetsina-mensina.md'
+      - file: 'src/content/cz/erazim-kohak.md'
         label: 'Většiny, mešiny'
         name: 'translated-articleCZ'
         fields:

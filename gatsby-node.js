@@ -5,8 +5,12 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
     let slug = createFilePath({ node, getNode, basePath: 'content' });
+    const originalSlug = slug;
     const lang = slug.slice(1, 3);
     slug = slug.slice(4);
+    if (slug.includes('minorities')) {
+      slug = slug.slice(11);
+    }
     createNodeField({
       node,
       name: 'slug',
@@ -16,6 +20,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       node,
       name: 'lang',
       value: lang,
+    });
+    createNodeField({
+      node,
+      name: 'originalSlug',
+      value: originalSlug,
     });
   }
 };
@@ -31,6 +40,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             fields {
               lang
               slug
+              originalSlug
             }
             frontmatter {
               type
@@ -49,14 +59,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   pages.data.allMarkdownRemark.edges.forEach(edge => {
     const prefix =
       edge.node.fields.lang === 'pl' ? '' : edge.node.fields.lang + '/';
+    console.log(prefix + edge.node.fields.slug);
     createPage({
       path: prefix + edge.node.fields.slug,
       component: path.resolve(
-        `./src/components/templates/${edge.node.frontmatter.type}.js`
+        `./src/components/pages/${edge.node.frontmatter.type}.js`
       ),
       context: {
         slug: edge.node.fields.slug,
-        nodeLocale: edge.node.fields.lang,
+        originalSlug: edge.node.fields.originalSlug,
+        language: edge.node.fields.lang,
       },
     });
   });
