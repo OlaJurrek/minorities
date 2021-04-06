@@ -6,13 +6,15 @@ import Paragraph from '../atoms/paragraph';
 
 const AboutProject = ({ data }) => {
   const { markdownRemark } = data;
-  const { frontmatter, html } = markdownRemark;
-  console.log(frontmatter);
+  const {
+    frontmatter: { title, dates, datesHeader, patrons },
+    html,
+  } = markdownRemark;
   return (
     <Layout>
-      <Headline text={frontmatter.title} />
+      <Headline text={title} />
       <div dangerouslySetInnerHTML={{ __html: html }}></div>
-      <Paragraph text={frontmatter.datesHeader} />
+      <Paragraph text={datesHeader} />
     </Layout>
   );
 };
