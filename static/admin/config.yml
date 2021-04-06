@@ -55,6 +55,7 @@ collections:
   - name: pagesPL
     label: Pozostałe strony - PL
     files:
+      #----- O projekcie - PL -------
       - file: 'src/content/pl/o-projekcie.md'
         label: 'O projekcie'
         name: 'aboutPL'
@@ -69,7 +70,7 @@ collections:
             }
           - {
               label: 'Nagłówek terminów spotkań',
-              name: 'dates-header',
+              name: 'datesHeader',
               widget: string,
             }
           - {
@@ -78,7 +79,7 @@ collections:
               required: false,
               widget: 'list',
               label_singular: 'termin spotkania',
-              default: ['dates'],
+              default: [],
               field:
                 { label: 'spotkanie', name: 'Spotkanie', widget: 'string' },
             }
@@ -174,7 +175,7 @@ collections:
             }
           - {
               label: 'Nadpis termínů setkání',
-              name: 'dates-header',
+              name: 'datesHeader',
               widget: string,
             }
           - {
@@ -183,7 +184,7 @@ collections:
               required: false,
               widget: 'list',
               label_singular: 'termín setkání',
-              default: ['dates'],
+              default: [],
               field: { label: 'spotkanie', name: 'Setkání', widget: 'string' },
             }
           - {

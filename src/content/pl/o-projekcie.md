@@ -1,7 +1,7 @@
 ---
 type: about
 title: O projekcie
-dates-header: Terminy i miejsca spotkań
+datesHeader: Terminy i miejsca spotkań
 dates:
   - 31 czerwca 2021 - online
   - 12 września 2021 - Czeskie centrum i online
