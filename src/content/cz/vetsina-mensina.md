@@ -1,8 +1,8 @@
 ---
 type: article
-title: O mensinach a vetsinach
 author: Erazim Kohák
-translator: Prelozil Maciej Mętrak
+title: O mensinach a vetsinach
+translator: ""
 ---
 
 Rodiče za války patřili k nekomunistickému odboji a byli vězněni gestapem. Po válce byl Kohák členem 118. skautského oddílu, kde získal přezdívku Jezevec.[5]
