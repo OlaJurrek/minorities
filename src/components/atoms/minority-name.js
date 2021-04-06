@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState } from "react";
-import styled from "styled-components";
-import { Link } from "gatsby";
-import { gsap } from "gsap";
+import React, { useRef, useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { gsap } from 'gsap';
 
 const FullName = styled.p`
   display: flex;
@@ -56,7 +56,7 @@ const MinorityName = ({ minority }) => {
     setMouseAnimation(
       tl.to(firstHalfRef.current, {
         duration: 0.5,
-        x: "+=100%",
+        x: '+=100%',
         paused: true,
       })
     );
@@ -76,7 +76,6 @@ const MinorityName = ({ minority }) => {
 
   const onMouseEnterHandler = () => {
     mouseAnimation.play();
-    console.log(mouseAnimation);
     // firstHalfTween.current.play();
     // lastHalfTween.current.play();
   };

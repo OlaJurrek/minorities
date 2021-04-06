@@ -21,8 +21,8 @@ export default function Article({ data, location, pageContext }) {
 }
 
 export const pageQuery = graphql`
-  query($originalSlug: String!) {
-    markdownRemark(fields: { originalSlug: { eq: $originalSlug } }) {
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
         author

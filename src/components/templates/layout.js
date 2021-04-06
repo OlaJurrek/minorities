@@ -2,7 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { getLangs, getUrlForLang } from 'ptz-i18n';
 import styled from 'styled-components';
-import Sidebar from '../sidebar';
+import Sidebar from '../molecules/sidebar';
 import GlobalStyle from '../../assets/styles/GlobalStyles';
 import LanguageNav from '../molecules/language-nav';
 
@@ -29,10 +29,11 @@ export default function Layout({ children, location, currentLang }) {
       }
     }
   `);
-  // console.log('data languages', data);
+
   const url = location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
   const currentLangKey = currentLang;
+  const currentLangPrefix = currentLangKey === 'pl' ? '' : currentLangKey + '/';
   const homeLink = `/${currentLangKey}/`.replace(`/${defaultLangKey}/`, '/');
   const langsMenu = getLangs(
     langs,
@@ -47,7 +48,7 @@ export default function Layout({ children, location, currentLang }) {
     <>
       <GlobalStyle />
       <Grid>
-        <Sidebar />
+        <Sidebar homeLink={homeLink} currentLangKey={currentLangKey} />
         <LanguageNav langs={langsMenu} />
         <Main>{children}</Main>
       </Grid>

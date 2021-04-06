@@ -5,7 +5,6 @@ import Headline from '../atoms/headline';
 import Paragraph from '../atoms/paragraph';
 
 export default function MinorityPage(props) {
-  console.log(props);
   const { markdownRemark } = props.data;
   const { frontmatter, html } = markdownRemark;
   const title = `${frontmatter.title} ${frontmatter.titleAddition}`;
@@ -19,8 +18,8 @@ export default function MinorityPage(props) {
 }
 
 export const pageQuery = graphql`
-  query($originalSlug: String!) {
-    markdownRemark(fields: { originalSlug: { eq: $originalSlug } }) {
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         path
         title

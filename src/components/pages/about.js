@@ -5,7 +5,6 @@ import Headline from '../atoms/headline';
 import Paragraph from '../atoms/paragraph';
 
 export default function AboutProject(props) {
-  console.log(props);
   const { markdownRemark } = props.data;
   const {
     frontmatter: { title, dates, datesHeader, patrons },
@@ -22,8 +21,8 @@ export default function AboutProject(props) {
 }
 
 export const pageQuery = graphql`
-  query($originalSlug: String!) {
-    markdownRemark(fields: { originalSlug: { eq: $originalSlug } }) {
+  query($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         title
         dates

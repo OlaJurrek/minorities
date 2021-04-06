@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import colors from "../assets/styles/colors";
+import colors from '../../assets/styles/colors';
 
 export default function ActiveMarker({ offset }) {
   return <Marker offset={offset} />;
