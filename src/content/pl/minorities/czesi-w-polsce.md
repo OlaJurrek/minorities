@@ -4,7 +4,10 @@ path: czesi-w-polsce
 title: Czesi
 titleAddition: w Polsce
 ---
-
 ### czesi!
 
 to czesi tutaj
+
+
+
+Czesi w Polsce mieszkają głównie pod Łodzią.
