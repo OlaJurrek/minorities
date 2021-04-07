@@ -3,6 +3,8 @@ import { graphql } from 'gatsby';
 import Layout from '../templates/layout';
 import Headline from '../atoms/headline';
 import Paragraph from '../atoms/paragraph';
+import MarkdownBody from '../atoms/markdown-body';
+import BiggerText from '../atoms/bigger-text';
 
 export default function Article({ data, location, pageContext }) {
   const { markdownRemark } = data;
@@ -12,10 +14,10 @@ export default function Article({ data, location, pageContext }) {
   } = markdownRemark;
   return (
     <Layout location={location} currentLang={pageContext.language}>
-      <Paragraph text={author} />
+      <BiggerText>{author}</BiggerText>
       <Headline text={title} />
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
-      {translator && <Paragraph text={translator} />}
+      <MarkdownBody content={html} />
+      {translator && <Paragraph>{translator}</Paragraph>}
     </Layout>
   );
 }

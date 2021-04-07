@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../templates/layout';
 import Headline from '../atoms/headline';
-// import Paragraph from '../atoms/paragraph';
+import MarkdownBody from '../atoms/markdown-body';
 
 export default function MinorityPage(props) {
   const { markdownRemark } = props.data;
@@ -11,8 +11,7 @@ export default function MinorityPage(props) {
   return (
     <Layout location={props.location} currentLang={props.pageContext.language}>
       <Headline text={title} />
-      {/* <Paragraph text={frontmatter.html} /> */}
-      <div dangerouslySetInnerHTML={{ __html: html }}></div>
+      <MarkdownBody content={html} />
     </Layout>
   );
 }

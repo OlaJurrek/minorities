@@ -1,7 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../templates/layout';
-import AboutTemplate from '../templates/about-template';
+import Headline from '../atoms/headline';
+import BiggerText from '../atoms/bigger-text';
+import MarkdownBody from '../atoms/markdown-body';
+import DatesList from '../molecules/dates-list';
 
 export default function AboutProject(props) {
   const { markdownRemark } = props.data;
@@ -14,13 +17,16 @@ export default function AboutProject(props) {
 
   return (
     <Layout location={props.location} currentLang={props.pageContext.language}>
-      <AboutTemplate
-        title={title}
-        htmlContent={html}
-        datesHeader={datesHeader}
-        dates={dates}
-        patrons={patrons}
-      />
+      <Headline text={title} />
+      <MarkdownBody content={html} />
+      {dates.length > 0 && (
+        <>
+          <BiggerText as="h2" alignment="center">
+            {datesHeader}
+          </BiggerText>
+          <DatesList dates={dates} />
+        </>
+      )}
     </Layout>
   );
 }

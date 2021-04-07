@@ -1,8 +1,7 @@
-import "sanitize.css";
-import { createGlobalStyle } from "styled-components";
+import 'sanitize.css';
+import { createGlobalStyle } from 'styled-components';
 import 'fontsource-poppins/300.css';
-import colors from "./colors";
-
+import colors from './colors';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -30,6 +29,12 @@ select,
 textarea {
   height: auto;
   max-width: 100%;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 `;
 
