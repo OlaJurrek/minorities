@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../templates/layout';
 import Headline from '../atoms/headline';
-import Paragraph from '../atoms/paragraph';
+// import Paragraph from '../atoms/paragraph';
 
 export default function MinorityPage(props) {
   const { markdownRemark } = props.data;

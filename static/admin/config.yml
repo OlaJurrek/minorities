@@ -3,6 +3,10 @@ backend:
   repo: OlaJurrek/minorities
   branch: main
 
+publish_mode: editorial_workflow
+
+locale: 'pl'
+
 media_folder: static/images/uploads
 public_folder: /images/uploads
 
@@ -14,6 +18,7 @@ collections:
     folder: 'src/content/pl/minorities'
     label_singular: strona mniejszości
     identifier_field: path
+    preview_path: pl/{{path}}
     summary: '{{title}} {{titleAddition}}'
     create: true
     fields:
@@ -52,6 +57,7 @@ collections:
       - file: 'src/content/pl/o-projekcie.md'
         label: 'O projekcie'
         name: 'aboutPL'
+        preview_path: pl/o-projekcie
         fields:
           - { name: type, label: 'Typ', widget: hidden, default: about }
           - { label: 'Główny nagłówek', name: title, widget: string }
@@ -88,6 +94,7 @@ collections:
       - file: 'src/content/pl/erazim-kohak.md'
         label: 'O mniejszościach i większościach'
         name: 'translated-articlePL'
+        preview_path: pl/erazim-kohak
         fields:
           - { name: type, label: Typ, widget: hidden, default: article }
           - { label: Autor, name: author, widget: string }
@@ -113,6 +120,7 @@ collections:
     folder: 'src/content/cz/minorities'
     label_singular: stránka menšiny
     identifier_field: path
+    preview_path: cz/{{path}}
     summary: '{{title}} {{titleAddition}}'
     create: true
     fields:
@@ -151,6 +159,7 @@ collections:
       - file: 'src/content/cz/o-projekcie.md'
         label: 'O projektě'
         name: 'aboutCZ'
+        preview_path: cz/o-projekcie
         fields:
           - { name: type, label: Type, widget: hidden, default: about }
           - { label: 'Hlavní nadpis', name: title, widget: string }
@@ -186,6 +195,7 @@ collections:
       - file: 'src/content/cz/erazim-kohak.md'
         label: 'Většiny, mešiny'
         name: 'translated-articleCZ'
+        preview_path: cz/erazim-kohak
         fields:
           - { name: type, label: Type, widget: hidden, default: article }
           - { label: Autor, name: author, widget: string }

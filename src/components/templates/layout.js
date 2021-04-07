@@ -33,7 +33,6 @@ export default function Layout({ children, location, currentLang }) {
   const url = location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
   const currentLangKey = currentLang;
-  const currentLangPrefix = currentLangKey === 'pl' ? '' : currentLangKey + '/';
   const homeLink = `/${currentLangKey}/`.replace(`/${defaultLangKey}/`, '/');
   const langsMenu = getLangs(
     langs,
