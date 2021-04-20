@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { getLangs, getUrlForLang } from 'ptz-i18n';
 import styled from 'styled-components';
+import LangsAndStylesProvider from './langs-and-styles-provider';
 import Sidebar from '../molecules/sidebar';
-import GlobalStyle from '../../assets/styles/GlobalStyles';
-import LanguageNav from '../molecules/language-nav';
 import MobileNav from '../molecules/mobile-nav';
 
 const Main = styled.main`
@@ -39,48 +37,35 @@ export default function Layout({ children, location, currentLang }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const data = useStaticQuery(graphql`
-    query HeaderQuery {
+    query BasicQuery {
       site {
         siteMetadata {
           languages {
             defaultLangKey
-            langs
           }
         }
       }
     }
   `);
 
-  const url = location.pathname;
-  const { langs, defaultLangKey } = data.site.siteMetadata.languages;
-  const currentLangKey = currentLang;
-  const homeLink = `/${currentLangKey}/`.replace(`/${defaultLangKey}/`, '/');
-  const langsMenu = getLangs(
-    langs,
-    currentLangKey,
-    getUrlForLang(homeLink, url)
-  ).map(item => ({
-    ...item,
-    link: item.link.replace(`/${defaultLangKey}/`, '/'),
-  }));
+  const { defaultLangKey } = data.site.siteMetadata.languages;
+  const homeLink = `/${currentLang}/`.replace(`/${defaultLangKey}/`, '/');
 
   const openMenu = value => {
     setIsMobileMenuOpen(value);
   };
 
   return (
-    <>
-      <GlobalStyle />
+    <LangsAndStylesProvider location={location} currentLang={currentLang}>
       <Grid>
         <Sidebar
           homeLink={homeLink}
-          currentLangKey={currentLangKey}
+          currentLangKey={currentLang}
           isOpen={isMobileMenuOpen}
         />
         <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
-        <LanguageNav langs={langsMenu} />
         <Main>{children}</Main>
       </Grid>
-    </>
+    </LangsAndStylesProvider>
   );
 }

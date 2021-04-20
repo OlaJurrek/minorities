@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import GlobalStyle from '../assets/styles/GlobalStyles';
 import AnimatedTitle from '../components/atoms/animated-title';
 import MinorityName from '../components/atoms/minority-name';
+import LangsAndStylesProvider from '../components/templates/langs-and-styles-provider';
 
 const minorityGroups = [
   { pl: { name: 'Niemcy' }, cz: { name: 'Němci' } },
@@ -42,20 +42,11 @@ const NavigationList = styled.ul`
   }
 `;
 
-// const minorityGroups = ["Niemcy", "Romowie"];
-// const groupNamesFull = [
-//   { pl: "Niemcy", cz: "Němci" },
-//   { pl: "Romowie", cz: "Romové" },
-//   { pl: "Polacy w Czechach", cz: "Poláci v Česku" },
-//   { pl: "Czesi w Polsce", cz: "Češi v Polsku" },
-//   { pl: "Ukraińcy", cz: "Ukrajinci" },
-//   { pl: "Wietnamczycy", cz: "Vietnamci" },
-//   { pl: "Żydzi", cz: "" },
-// ];
-
-const IntroPage = () => (
-  <>
-    <GlobalStyle />
+const IntroPage = props => (
+  <LangsAndStylesProvider
+    location={props.location}
+    currentLang={props.pageContext.language}
+  >
     <Intro>
       <AnimatedTitle title="My - menšiny" />
       <nav>
@@ -68,7 +59,7 @@ const IntroPage = () => (
         </NavigationList>
       </nav>
     </Intro>
-  </>
+  </LangsAndStylesProvider>
 );
 
 export default IntroPage;

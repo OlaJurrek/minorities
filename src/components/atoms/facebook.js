@@ -1,16 +1,15 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import FacebookIcon from '../../../static/images/facebook.svg';
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
   display: inline-block;
   padding: 0.5em;
 `;
 
 const Facebook = () => {
   return (
-    <StyledLink to="https://www.facebook.com/">
+    <StyledLink href="https://www.facebook.com/" target="_blank">
       <FacebookIcon />
     </StyledLink>
   );

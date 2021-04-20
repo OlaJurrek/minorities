@@ -1,8 +1,9 @@
 import React from 'react';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import GlobalStyle from '../assets/styles/GlobalStyles';
 import AnimatedTitle from '../components/atoms/animated-title';
 import MinorityName from '../components/atoms/minority-name';
+import LangsAndStylesProvider from '../components/templates/langs-and-styles-provider';
 
 const minorityGroups = [
   { pl: { name: 'Niemcy' }, cz: { name: 'Němci' } },
@@ -42,33 +43,56 @@ const NavigationList = styled.ul`
   }
 `;
 
-// const minorityGroups = ["Niemcy", "Romowie"];
-// const groupNamesFull = [
-//   { pl: "Niemcy", cz: "Němci" },
-//   { pl: "Romowie", cz: "Romové" },
-//   { pl: "Polacy w Czechach", cz: "Poláci v Česku" },
-//   { pl: "Czesi w Polsce", cz: "Češi v Polsku" },
-//   { pl: "Ukraińcy", cz: "Ukrajinci" },
-//   { pl: "Wietnamczycy", cz: "Vietnamci" },
-//   { pl: "Żydzi", cz: "" },
-// ];
-
-const IntroPage = () => (
-  <>
-    <GlobalStyle />
-    <Intro>
-      <AnimatedTitle title="My - mniejszości" />
-      <nav>
-        <NavigationList>
-          {minorityGroups.map((minority, index) => (
-            <li key={index}>
-              <MinorityName minority={minority} />
-            </li>
-          ))}
-        </NavigationList>
-      </nav>
-    </Intro>
-  </>
-);
+const IntroPage = props => {
+  console.log(props.data);
+  return (
+    <LangsAndStylesProvider
+      location={props.location}
+      currentLang={props.pageContext.language}
+    >
+      <Intro>
+        <AnimatedTitle title="My - mniejszości" />
+        <nav>
+          <NavigationList>
+            {minorityGroups.map((minority, index) => (
+              <li key={index}>
+                <MinorityName minority={minority} />
+              </li>
+            ))}
+          </NavigationList>
+        </nav>
+      </Intro>
+    </LangsAndStylesProvider>
+  );
+};
 
 export default IntroPage;
+
+export const query = graphql`
+  query IntroPLQuery {
+    allMarkdownRemark(
+      filter: {
+        frontmatter: { type: { eq: "single-minority" } }
+        fields: { lang: { eq: "pl" } }
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+        }
+      }
+    }
+  }
+`;
