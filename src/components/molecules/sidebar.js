@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 
 import ActiveMarker from '../atoms/active-marker';
+import Facebook from '../atoms/facebook';
 import colors from '../../assets/styles/colors';
 import typography from '../../assets/styles/typography';
 
@@ -16,10 +17,20 @@ const Aside = styled.aside`
   transition: transform 0.3s ease-in-out;
   transform: translateX(${props => (props.isOpen ? '0' : '-100%')});
   z-index: 1;
+  padding-bottom: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     position: static;
     transform: none;
+    padding-bottom: 1em;
+  }
+
+  nav {
+    width: 100%;
+    flex-grow: 1;
   }
 
   .nav-header-wrapper {
@@ -186,6 +197,7 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
           )}
         </MenuList>
       </nav>
+      <Facebook />
     </Aside>
   );
 }

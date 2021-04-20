@@ -7,8 +7,8 @@ publish_mode: editorial_workflow
 
 locale: 'pl'
 
-media_folder: static/images/uploads
-public_folder: /images/uploads
+media_folder: static/uploads
+public_folder: /uploads
 
 collections:
   #----------------------PL------------------------
