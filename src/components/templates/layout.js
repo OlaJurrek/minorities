@@ -27,6 +27,7 @@ const Grid = styled.div`
 
   @media only screen and (min-width: 768px) {
     grid-template-columns: 250px 1fr;
+    grid-template-rows: none;
   }
 
   @media only screen and (min-width: 992px) {
@@ -64,7 +65,6 @@ export default function Layout({ children, location, currentLang }) {
   }));
 
   const openMenu = value => {
-    console.log(value);
     setIsMobileMenuOpen(value);
   };
 

@@ -13,8 +13,6 @@ export default function AboutProject(props) {
     html,
   } = markdownRemark;
 
-  console.log(dates);
-
   return (
     <Layout location={props.location} currentLang={props.pageContext.language}>
       <Headline text={title} />

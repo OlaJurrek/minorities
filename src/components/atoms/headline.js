@@ -15,8 +15,16 @@ const StyledHeadline = styled.h1`
 
   @media screen and (min-width: 768px) {
     margin: 0 0 1.3em;
-    font-size: 2.375em;
+    font-size: 1.8em;
     font-variation-settings: 'wght' 350;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 2em;
+  }
+
+  @media screen and (min-width: 1200px) {
+    font-size: 2.375em;
   }
 `;
 

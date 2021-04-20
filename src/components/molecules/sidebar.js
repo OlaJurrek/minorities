@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
 import ActiveMarker from '../atoms/active-marker';
 import colors from '../../assets/styles/colors';
@@ -75,7 +74,6 @@ const MenuList = styled.ul`
 export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   const [activeElementOffset, setActiveElementOffset] = useState(0);
   const [offset, setOffset] = useState(activeElementOffset);
-  console.log(isOpen);
   const currentLangPrefix = currentLangKey === 'pl' ? '' : currentLangKey + '/';
 
   const data = useStaticQuery(graphql`
