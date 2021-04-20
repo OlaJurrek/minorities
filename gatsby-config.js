@@ -2,6 +2,7 @@ const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
+    shortTitle: 'MY',
     languages,
   },
   plugins: [

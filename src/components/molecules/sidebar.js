@@ -5,10 +5,23 @@ import { Link } from 'gatsby';
 
 import ActiveMarker from '../atoms/active-marker';
 import colors from '../../assets/styles/colors';
+import typography from '../../assets/styles/typography';
 
 const Aside = styled.aside`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  font-family: ${typography.plex};
   background-color: ${colors.lightGrey};
-  font-family: 'Plex', sans-serif;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(${props => (props.isOpen ? '0' : '-100%')});
+  z-index: 1;
+
+  @media screen and (min-width: 768px) {
+    position: static;
+    transform: none;
+  }
 
   .nav-header-wrapper {
     padding: 2.625em 0;
@@ -59,9 +72,10 @@ const MenuList = styled.ul`
   }
 `;
 
-export default function Sidebar({ currentLangKey, homeLink }) {
+export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   const [activeElementOffset, setActiveElementOffset] = useState(0);
   const [offset, setOffset] = useState(activeElementOffset);
+  console.log(isOpen);
   const currentLangPrefix = currentLangKey === 'pl' ? '' : currentLangKey + '/';
 
   const data = useStaticQuery(graphql`
@@ -117,7 +131,7 @@ export default function Sidebar({ currentLangKey, homeLink }) {
   }, []);
 
   return (
-    <Aside>
+    <Aside isOpen={isOpen}>
       <nav>
         <div className="nav-header-wrapper">
           <Link to={homeLink} className="nav-header white-text">

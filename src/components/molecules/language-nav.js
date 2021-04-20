@@ -6,15 +6,23 @@ import colors from '../../assets/styles/colors';
 const StyledNav = styled.ul`
   position: absolute;
   top: 0;
-  right: 3em;
+  right: 0em;
   padding: 0;
   margin: 0;
   list-style: none;
   display: flex;
+
+  @media screen and (min-width: 992px) {
+    right: 3em;
+  }
 `;
 
 const StyledNavItem = styled.li`
-  padding: 1.25em 1.8em 1.5em;
+  padding: 0.7em 1.1em 0.6em;
+
+  @media screen and (min-width: 768px) {
+    padding: 1.25em 1.8em 1.5em;
+  }
 
   &:not(:first-of-type) {
     border-left: solid 2px ${colors.dark};
