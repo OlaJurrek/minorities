@@ -18,7 +18,7 @@ collections:
     folder: 'src/content/pl/minorities'
     label_singular: strona mniejszości
     identifier_field: path
-    preview_path: { { path } }
+    preview_path: '{ { path } }'
     summary: '{{title}} {{titleAddition}}'
     create: true
     fields:
@@ -120,7 +120,7 @@ collections:
     folder: 'src/content/cz/minorities'
     label_singular: stránka menšiny
     identifier_field: path
-    preview_path: cz/{{path}}
+    preview_path: 'cz/{{path}}'
     summary: '{{title}} {{titleAddition}}'
     create: true
     fields:
