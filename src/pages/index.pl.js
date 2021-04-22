@@ -2,24 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import AnimatedTitle from '../components/atoms/animated-title';
-import MinorityName from '../components/atoms/minority-name';
+import IntroNavigation from '../components/molecules/intro-nav';
 import LangsAndStylesProvider from '../components/templates/langs-and-styles-provider';
-
-const minorityGroups = [
-  { pl: { name: 'Niemcy' }, cz: { name: 'Němci' } },
-  { pl: { name: 'Romowie' }, cz: { name: 'Romové' } },
-  {
-    pl: { name: 'Polacy', localization: 'w Czechach' },
-    cz: { name: 'Poláci', localization: 'v Česku' },
-  },
-  {
-    pl: { name: 'Czesi', localization: 'w Polsce' },
-    cz: { name: 'Češi', localization: 'v Polsku' },
-  },
-  { pl: { name: 'Ukraińcy' }, cz: { name: 'Ukrajinci' } },
-  { pl: { name: 'Wietnamczycy' }, cz: { name: 'Vietnamci' } },
-  { pl: { name: 'Żydzi' }, cz: { name: 'Židé' } },
-];
 
 const Intro = styled.div`
   font-family: 'Plex', sans-serif;
@@ -27,62 +11,44 @@ const Intro = styled.div`
   text-align: center;
 `;
 
-const NavigationList = styled.ul`
-  max-width: 450px;
-  margin: 0 auto;
-  padding: 0 1em;
-  display: flex;
-  flex-wrap: wrap;
+const IndexPL = props => {
+  const { defaultLangKey } = props.data.site.siteMetadata.languages;
+  const currentLangKey = props.pageContext.langKey;
+  const homeLink = `/${currentLangKey}/`.replace(`/${defaultLangKey}/`, '/');
+  const minoritiesEdges = props.data.allMarkdownRemark.edges;
 
-  li {
-    flex: 0 0 50%;
-  }
-
-  li:last-child {
-    flex: 0 0 100%;
-  }
-`;
-
-const IntroPage = props => {
-  console.log(props.data);
   return (
     <LangsAndStylesProvider
       location={props.location}
       currentLang={props.pageContext.language}
     >
       <Intro>
-        <AnimatedTitle title="My - mniejszości" />
-        <nav>
-          <NavigationList>
-            {minorityGroups.map((minority, index) => (
-              <li key={index}>
-                <MinorityName minority={minority} />
-              </li>
-            ))}
-          </NavigationList>
-        </nav>
+        <AnimatedTitle link={homeLink} title="My - mniejszości" />
+        <IntroNavigation
+          minorities={minoritiesEdges}
+          currentLang={currentLangKey}
+        />
       </Intro>
     </LangsAndStylesProvider>
   );
 };
 
-export default IntroPage;
+export default IndexPL;
 
 export const query = graphql`
   query IntroPLQuery {
     allMarkdownRemark(
-      filter: {
-        frontmatter: { type: { eq: "single-minority" } }
-        fields: { lang: { eq: "pl" } }
-      }
+      filter: { frontmatter: { type: { eq: "single-minority" } } }
     ) {
       edges {
         node {
           frontmatter {
             title
+            path
           }
           fields {
             slug
+            lang
           }
         }
       }

@@ -37,7 +37,7 @@ export default function Layout({ children, location, currentLang }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const data = useStaticQuery(graphql`
-    query BasicQuery {
+    query {
       site {
         siteMetadata {
           languages {

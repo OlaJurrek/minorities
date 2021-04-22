@@ -1,6 +1,6 @@
 ---
 type: single-minority
-path: cesi-v-polsku
+path: czesi-w-polsce
 title: Cesi
 titleAddition: v Polsku
 ---
