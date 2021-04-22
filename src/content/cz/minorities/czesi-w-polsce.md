@@ -1,10 +1,21 @@
 ---
-type: single-minority
 path: czesi-w-polsce
-title: Cesi
+title: Češi
 titleAddition: v Polsku
+type: single-minority
 ---
+**Češi** jsou nejmenší státem uznanou národnostní [menšinou](https://cs.wikipedia.org/wiki/Men%C5%A1ina "Menšina") v [Polské republice](https://cs.wikipedia.org/wiki/Polsko "Polsko"). Podle zákona jsou jejími příslušníky [polští](https://cs.wikipedia.org/wiki/Polsko "Polsko") [státní občané](https://cs.wikipedia.org/wiki/Ob%C4%8Danstv%C3%AD "Občanství") s [českou](https://cs.wikipedia.org/wiki/%C4%8Ce%C5%A1i "Češi") národností. Při sčítání lidu v roce 2011 se k ní přihlásilo 2831 osob.
 
-### cesi!
+Nejvíce polských Čechů žije v okolí [Zelova](https://cs.wikipedia.org/wiki/Zel%C3%B3w "Zelów") v [Lodžském vojvodství](https://cs.wikipedia.org/wiki/Lod%C5%BEsk%C3%A9_vojvodstv%C3%AD "Lodžské vojvodství"). Jedná se o potomky českých [exulantů](https://cs.wikipedia.org/wiki/Exil "Exil") z [doby pobělohorské](https://cs.wikipedia.org/wiki/Doba_pob%C4%9Blohorsk%C3%A1 "Doba pobělohorská") (členů [Jednoty bratrské](https://cs.wikipedia.org/wiki/Jednota_bratrsk%C3%A1 "Jednota bratrská")), kteří zde, v [pruském Slezsku](https://cs.wikipedia.org/wiki/Prusk%C3%A9_Slezsko "Pruské Slezsko"), v roce 1802 koupili zpustlý statek. Na jeho místě pak založili a vybudovali město.\[[1]](https://cs.wikipedia.org/wiki/%C4%8Ce%C5%A1i*v_Polsku#cite_note-1)* 
 
-Ahoj!
+> *Roku 1909 v obci žilo 6822 osob, z nichž bylo zhruba 1200 Poláků a 100 Němců, takže Češi představovali 80 procent místního obyvatelstva. Ke změně etnického složení obyvatelstva této exulantské obce došlo po skončení [druhé světové války](https://cs.wikipedia.org/wiki/Druh%C3%A1_sv%C4%9Btov%C3%A1_v%C3%A1lka "Druhá světová válka") – tehdy došlo k [repatriaci](https://cs.wikipedia.org/wiki/Repatriace "Repatriace") všech menšin z nově ustanovených hranic Polska. Češi, kteří chtěli v Polsku zůstat, byli donuceni stát se Poláky. Dnes jsou asimilovaní a češtinu ovládá pouze nejstarší generace. Hlavním stmelujícím prvkem je evangelická farnost a \[spolek Exulant](https://cs.wikipedia.org/wiki/Exulant*(spolek) "Exulant (spolek)"). 
+
+Místní kostel je nejen chrámem, ale i kulturním střediskem české komunity; od roku 1999 zde působí unikátní hudební těleso [Zelowskie Dzwonki](https://cs.wikipedia.org/wiki/Zelowskie_Dzwonki "Zelowskie Dzwonki"), které v roce 2015 obdrželo od *Evropské unie umění* cenu za uměleckou a kulturní činnost (Golden Europea). V podkroví kostela je *Muzeum v Zelově – Středisko dokumentace dějin Českých bratří*. Podle příslušnosti k evangelickému reformovanému i [baptistickému](https://cs.wikipedia.org/wiki/Baptismus "Baptismus") sboru je počet Čechů odhadován na několik stovek (Zelov čítá asi 8000 obyvatel), ale k české národnosti se přihlásilo pouze 111 osob v celém vojvodství a 81 v samotném Zelově (českou obcovací řeč uvedlo 77 osob ve vojvodství a 29 v Zelově).
+
+## Kladsko
+
+Autochtonní obyvatelstvo západního [Kladska](https://cs.wikipedia.org/wiki/Kladsk%C3%A9_hrabstv%C3%AD "Kladské hrabství") (které bylo do roku 1477 součásti [Čech](https://cs.wikipedia.org/wiki/%C4%8Cechy "Čechy")), tak zvaného [Českého koutku](https://cs.wikipedia.org/wiki/%C4%8Cesk%C3%BD_koutek "Český koutek") kolem města [Lázně Chudoba](https://cs.wikipedia.org/wiki/Kudowa-Zdr%C3%B3j "Kudowa-Zdrój"), tvořili Češi hovořící [kladským nářečím](https://cs.wikipedia.org/wiki/Kladsk%C3%A9_n%C3%A1%C5%99e%C4%8D%C3%AD "Kladské nářečí"). V roce 1902 bylo jich 5250. Po připojení tohoto území k Polsku po druhé světové válce se v důsledku repatriace, reemigrace či asimilace počet Čechů začal rychle snižovat. V roce 2002 se v celém [Dolnoslezském vojvodství](https://cs.wikipedia.org/wiki/Dolnoslezsk%C3%A9_vojvodstv%C3%AD "Dolnoslezské vojvodství") k české národnosti přihlásilo 47 osob, přičemž češtinu za obcovací řeč uvedlo 181 lidí.
+
+## Moravci
+
+Za součást českého národa byli občas považováni i tzv. [Moravci](https://cs.wikipedia.org/wiki/Moravci "Moravci"), obyvatelstvo moravského původu obývající před druhou světovou válkou okolí [Ratiboře](https://cs.wikipedia.org/wiki/Ratibo%C5%99_(Slezsk%C3%A9_vojvodstv%C3%AD) "Ratiboř (Slezské vojvodství)") a [Hlubčic](https://cs.wikipedia.org/wiki/Hlub%C4%8Dice "Hlubčice") (byl to kdysi jeden kulturní a správní celek spolu s českým [Hlučínskem](https://cs.wikipedia.org/wiki/Hlu%C4%8D%C3%ADnsko "Hlučínsko")). Jejich národní identita byla buď [německá](https://cs.wikipedia.org/wiki/N%C4%9Bmci "Němci"), nebo neexistovala vůbec. Po připojení tohoto území k Polsku jich část odešla do Československa, část byla spolu s Němci nuceně vysídlena do Německa, část pak zůstala a [asimilovala](https://cs.wikipedia.org/wiki/Asimilace_(sociologie) "Asimilace (sociologie)") se s Poláky. V celém [Slezském vojvodství](https://cs.wikipedia.org/wiki/Slezsk%C3%A9_vojvodstv%C3%AD "Slezské vojvodství") se v roce 2002 k české národností přihlásilo 67 osob, čeština pak byla obcovací řečí pro 239 lidí.
