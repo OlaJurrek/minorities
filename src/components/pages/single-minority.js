@@ -7,7 +7,9 @@ import MarkdownBody from '../atoms/markdown-body';
 export default function MinorityPage(props) {
   const { markdownRemark } = props.data;
   const { frontmatter, html } = markdownRemark;
-  const title = `${frontmatter.title} ${frontmatter.titleAddition}`;
+  const title = frontmatter.titleAddition
+    ? `${frontmatter.title} ${frontmatter.titleAddition}`
+    : frontmatter.title;
   return (
     <Layout location={props.location} currentLang={props.pageContext.language}>
       <Headline text={title} />

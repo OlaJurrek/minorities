@@ -12,7 +12,7 @@ const StyledName = styled.p`
 
 const MinorityName = ({ minority }) => {
   return (
-    <Link to={minority.slug}>
+    <Link to={`/${minority.slug}`}>
       <StyledName>{minority.name}</StyledName>
     </Link>
   );
