@@ -11,6 +11,7 @@ const StyledNav = styled.ul`
   margin: 0;
   list-style: none;
   display: flex;
+  z-index: 4;
 
   @media screen and (min-width: 992px) {
     right: 3em;

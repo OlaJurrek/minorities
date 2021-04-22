@@ -6,9 +6,16 @@ import IntroNavigation from '../components/molecules/intro-nav';
 import LangsAndStylesProvider from '../components/templates/langs-and-styles-provider';
 
 const Intro = styled.div`
+  height: 100vh;
   font-family: 'Plex', sans-serif;
   color: #1a1a1a;
   text-align: center;
+
+  @media screen and (min-width: 576px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const IndexPL = props => {

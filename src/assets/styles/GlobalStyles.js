@@ -1,4 +1,3 @@
-import 'sanitize.css';
 import { createGlobalStyle } from 'styled-components';
 import 'fontsource-poppins/300.css';
 import colors from './colors';
@@ -35,6 +34,10 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+p {
+  margin: 0 0 1em;
 }
 `;
 
