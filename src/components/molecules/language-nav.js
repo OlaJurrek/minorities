@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import LanguageLink from '../atoms/language-link';
-import colors from '../../assets/styles/colors';
 
 const StyledNav = styled.ul`
   position: absolute;
@@ -26,12 +25,12 @@ const StyledNavItem = styled.li`
   }
 
   &:not(:first-of-type) {
-    border-left: solid 2px ${colors.dark};
+    border-left: solid 2px ${({ theme }) => theme.colors.dark};
   }
 `;
 
-const LanguageNav = props => {
-  const links = props.langs.map(lang => (
+const LanguageNav = ({ langs }) => {
+  const links = langs.map(lang => (
     <StyledNavItem key={lang.langKey}>
       <LanguageLink
         lang={lang.langKey}

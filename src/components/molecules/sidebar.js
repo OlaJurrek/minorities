@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-
 import ActiveMarker from '../atoms/active-marker';
 import Facebook from '../atoms/facebook';
-import colors from '../../assets/styles/colors';
-import typography from '../../assets/styles/typography';
 
 const Aside = styled.aside`
   position: fixed;
   top: 0;
   bottom: 0;
   width: 100%;
-  font-family: ${typography.plex};
-  background-color: ${colors.lightGrey};
+  font-family: ${({ theme }) => theme.fonts.plex};
+  background-color: ${({ theme }) => theme.colors.lightGrey};
   transition: transform 0.3s ease-in-out;
-  transform: translateX(${props => (props.isOpen ? '0' : '-100%')});
+  transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
   z-index: 1;
   padding-bottom: 0.5em;
   display: flex;
@@ -36,7 +33,7 @@ const Aside = styled.aside`
   .nav-header-wrapper {
     padding: 2.625em 0;
     text-align: center;
-    background-color: ${colors.dark};
+    background-color: ${({ theme }) => theme.colors.dark};
   }
 
   .nav-header {
@@ -45,12 +42,10 @@ const Aside = styled.aside`
     font-variation-settings: 'wght' 200;
     letter-spacing: 1px;
     text-transform: uppercase;
-    // border-right: solid 1.5px ${colors.white};
-    // margin-right: 1.8rem;
   }
 
   .white-text {
-    color: ${colors.white};
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 
@@ -65,15 +60,15 @@ const MenuList = styled.ul`
       max-width: 12em;
       margin-left: 2em;
       padding: 0.5em 1em 0.5em 1.8em;
-      border-left: solid 1.5px ${colors.dark};
+      border-left: solid 1.5px ${({ theme }) => theme.colors.dark};
     }
   }
 
   li.white-text {
-    background-color: ${colors.dark};
+    background-color: ${({ theme }) => theme.colors.dark};
 
     div {
-      border-left: solid 1.5px ${colors.lightGrey};
+      border-left: solid 1.5px ${({ theme }) => theme.colors.lightGrey};
     }
   }
 

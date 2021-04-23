@@ -6,22 +6,23 @@ import BiggerText from '../atoms/bigger-text';
 import MarkdownBody from '../atoms/markdown-body';
 import DatesList from '../molecules/dates-list';
 
-export default function AboutProject(props) {
-  const { markdownRemark } = props.data;
-  const {
-    frontmatter: { title, dates, datesHeader, patrons },
-    html,
-  } = markdownRemark;
-
+export default function About({
+  data: {
+    markdownRemark: {
+      frontmatter: { title, dates, datesHeader, patrons },
+      html,
+    },
+  },
+  location,
+  pageContext: { language },
+}) {
   return (
-    <Layout location={props.location} currentLang={props.pageContext.language}>
+    <Layout location={location} currentLang={language}>
       <Headline text={title} />
       <MarkdownBody content={html} />
       {dates.length > 0 && (
         <>
-          <BiggerText as="h2" alignment="center">
-            {datesHeader}
-          </BiggerText>
+          <BiggerText as="h2" alignment="center" text={datesHeader} />
           <DatesList dates={dates} />
         </>
       )}

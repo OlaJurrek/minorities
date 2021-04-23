@@ -1,18 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'gatsby';
-import colors from '../../assets/styles/colors';
+import styled from 'styled-components';
 
 const StyledLink = styled(Link)`
   display: block;
 `;
 
 const StyledName = styled.p`
-  /* display: flex; */
-  /* justify-content: center; */
   margin: 1.2em 0;
   text-align: center;
-  color: ${colors.introText};
+  color: ${({ theme }) => theme.colors.introText};
 
   @media screen and (min-width: 576px) {
     font-size: 1.33em;
@@ -30,15 +27,12 @@ const StyledAddition = styled.span`
   }
 `;
 
-const MinorityName = ({ minority }) => {
-  console.log(minority);
+const MinorityName = ({ minority: { slug, name, addition } }) => {
   return (
-    <StyledLink to={`/${minority.slug}`}>
+    <StyledLink to={`/${slug}`}>
       <StyledName>
-        {minority.name}
-        {minority.addition && (
-          <StyledAddition>{minority.addition}</StyledAddition>
-        )}
+        {name}
+        {addition && <StyledAddition>{addition}</StyledAddition>}
       </StyledName>
     </StyledLink>
   );

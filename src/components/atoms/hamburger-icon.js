@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../assets/styles/colors';
 
 export const HamburgerIcon = styled.button`
   position: relative;
@@ -26,7 +25,7 @@ export const HamburgerIcon = styled.button`
     left: 0;
     height: 3px;
     width: 100%;
-    background: ${colors.black};
+    background: ${({ theme }) => theme.colors.black};
     border-radius: 30px;
     opacity: 1;
     transition: 500ms ease-in-out;

@@ -4,15 +4,20 @@ import Layout from '../templates/layout';
 import Headline from '../atoms/headline';
 import MarkdownBody from '../atoms/markdown-body';
 
-export default function MinorityPage(props) {
-  const { markdownRemark } = props.data;
-  const { frontmatter, html } = markdownRemark;
-  const title = frontmatter.titleAddition
-    ? `${frontmatter.title} ${frontmatter.titleAddition}`
-    : frontmatter.title;
+export default function SingleMinority({
+  data: {
+    markdownRemark: {
+      frontmatter: { title, titleAddition },
+      html,
+    },
+  },
+  location,
+  pageContext: { language },
+}) {
+  const headline = titleAddition ? `${title} ${titleAddition}` : title;
   return (
-    <Layout location={props.location} currentLang={props.pageContext.language}>
-      <Headline text={title} />
+    <Layout location={location} currentLang={language}>
+      <Headline text={headline} />
       <MarkdownBody content={html} />
     </Layout>
   );

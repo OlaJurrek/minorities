@@ -1,12 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import colors from '../../assets/styles/colors';
-
-export default function ActiveMarker({ offset }) {
-  return <Marker offset={offset} />;
-}
-
 const Marker = styled.i`
   display: block;
   position: absolute;
@@ -15,11 +9,15 @@ const Marker = styled.i`
   width: 2em;
   height: 2em;
   background-image: radial-gradient(
-    ${colors.lightGrey} 35%,
-    ${colors.dark} 39% 100%
+    ${({ theme }) => theme.colors.lightGrey} 35%,
+    ${({ theme }) => theme.colors.dark} 39% 100%
   );
-  border: 1.5px solid ${colors.lightGrey};
+  border: 1.5px solid ${({ theme }) => theme.colors.lightGrey};
   margin-left: 1em;
   border-radius: 50%;
-  transform: translateY(${props => props.offset}px);
+  transform: translateY(${({ offset }) => offset}px);
 `;
+
+export default function ActiveMarker({ offset }) {
+  return <Marker offset={offset} />;
+}

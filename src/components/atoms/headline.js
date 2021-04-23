@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../assets/styles/colors';
-import typography from '../../assets/styles/typography';
 
 const StyledHeadline = styled.h1`
   margin: 0 0 1.6em;
   text-align: center;
-  color: ${colors.black};
-  font-family: ${typography.plex};
+  color: ${({ theme }) => theme.colors.black};
+  font-family: ${({ theme }) => theme.fonts.plex};
   font-size: 1.6em;
   line-height: 1.2;
   font-weight: 350;

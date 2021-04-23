@@ -1,8 +1,10 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { getLangs, getUrlForLang } from 'ptz-i18n';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../../styles/theme';
 
-import GlobalStyle from '../../assets/styles/GlobalStyles';
+import GlobalStyle from '../../styles/GlobalStyle';
 import LanguageNav from '../molecules/language-nav';
 
 const LangsAndStylesProvider = ({ children, location, currentLang }) => {
@@ -33,11 +35,13 @@ const LangsAndStylesProvider = ({ children, location, currentLang }) => {
   }));
 
   return (
-    <>
-      <GlobalStyle />
-      <LanguageNav langs={langsMenu} />
-      {children}
-    </>
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <LanguageNav langs={langsMenu} />
+        {children}
+      </>
+    </ThemeProvider>
   );
 };
 
