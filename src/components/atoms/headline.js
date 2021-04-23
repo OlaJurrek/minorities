@@ -7,23 +7,19 @@ const StyledHeadline = styled.h1`
   color: ${({ theme }) => theme.colors.black};
   font-family: ${({ theme }) => theme.fonts.plex};
   font-size: 1.6em;
-  line-height: 1.2;
   font-weight: 350;
   font-variation-settings: 'wght' 450;
+  line-height: 1.2;
 
-  @media screen and (min-width: 768px) {
+  ${({ theme }) => theme.media.md`
     margin: 0 0 1.3em;
     font-size: 1.8em;
     font-variation-settings: 'wght' 350;
-  }
+  `}
 
-  @media screen and (min-width: 1200px) {
-    font-size: 2em;
-  }
-
-  @media screen and (min-width: 1200px) {
+  ${({ theme }) => theme.media.xl`
     font-size: 2.375em;
-  }
+  `}
 `;
 
 const Headline = ({ text }) => <StyledHeadline>{text}</StyledHeadline>;

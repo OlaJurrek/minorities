@@ -9,21 +9,21 @@ const Aside = styled.aside`
   top: 0;
   bottom: 0;
   width: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0.5em;
   font-family: ${({ theme }) => theme.fonts.plex};
   background-color: ${({ theme }) => theme.colors.lightGrey};
   transition: transform 0.3s ease-in-out;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
-  z-index: 1;
-  padding-bottom: 0.5em;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 
-  @media screen and (min-width: 768px) {
+  ${({ theme }) => theme.media.md`
     position: static;
     transform: none;
     padding-bottom: 1em;
-  }
+  `}
 
   nav {
     width: 100%;

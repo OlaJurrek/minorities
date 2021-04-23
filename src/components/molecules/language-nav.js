@@ -6,25 +6,25 @@ const StyledNav = styled.ul`
   position: absolute;
   top: 0;
   right: 0em;
-  padding: 0;
-  margin: 0;
-  list-style: none;
   display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
   z-index: 4;
 
-  @media screen and (min-width: 992px) {
+  ${({ theme }) => theme.media.lg`
     right: 3em;
-  }
+  `}
 `;
 
 const StyledNavItem = styled.li`
   padding: 0.7em 1.1em 0.6em;
 
-  @media screen and (min-width: 768px) {
+  ${({ theme }) => theme.media.md`
     padding: 1.25em 1.8em 1.5em;
-  }
+  `}
 
-  &:not(:first-of-type) {
+  :not(:first-of-type) {
     border-left: solid 2px ${({ theme }) => theme.colors.dark};
   }
 `;

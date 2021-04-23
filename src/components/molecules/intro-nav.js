@@ -20,18 +20,18 @@ const NavigationList = styled.ul`
   display: flex;
   flex-wrap: wrap;
 
-  @media screen and (min-width: 576px) {
-    max-width: none;
-    display: block;
-  }
+  ${({ theme }) => theme.media.sm`
+      display: block;
+      max-width: none;
+  `}
 `;
 
 const NavigationListItem = styled.li`
   flex: 0 0 50%;
 
-  @media screen and (min-width: 576px) {
-    position: absolute;
-  }
+  ${({ theme }) => theme.media.sm`
+      position: absolute;
+  `}
 
   :nth-child(1) {
     top: 17vh;

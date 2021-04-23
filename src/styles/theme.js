@@ -1,3 +1,12 @@
+import { css } from 'styled-components';
+
+const breakpoints = {
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+};
+
 export const theme = {
   colors: {
     lightGrey: '#EEEDED',
@@ -12,4 +21,12 @@ export const theme = {
     plex: "'Plex', sans-serif",
     poppins: "'Poppins', sans-serif",
   },
+  media: Object.keys(breakpoints).reduce((acc, label) => {
+    acc[label] = (...args) => css`
+      @media (min-width: ${breakpoints[label]}px) {
+        ${css(...args)};
+      }
+    `;
+    return acc;
+  }, {}),
 };

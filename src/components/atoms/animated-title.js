@@ -8,21 +8,17 @@ const Title = styled.h1`
   margin: 0;
   font-size: 2em;
   font-weight: 300;
-  text-transform: uppercase;
   font-variation-settings: 'wght' 450, 'wdth' 85;
+  text-transform: uppercase;
 
-  @media screen and (min-width: 576px) {
+  ${({ theme }) => theme.media.sm`
     transform: translateY(-50%);
-  }
-`;
-
-const StyledLink = styled(Link)`
-  color: inherit;
+  `}
 `;
 
 const AnimatedTitle = ({ title, link }) => (
   <Title>
-    <StyledLink to={link}>{title}</StyledLink>
+    <Link to={link}>{title}</Link>
   </Title>
 );
 

@@ -9,9 +9,9 @@ const StyledHeader = styled.header`
   display: flex;
   align-items: center;
 
-  @media screen and (min-width: 768px) {
+  ${({ theme }) => theme.media.md`
     display: none;
-  }
+  `}
 `;
 
 const MobileNav = ({ homeLink, onOpenMenu }) => {

@@ -8,13 +8,13 @@ import MobileNav from '../molecules/mobile-nav';
 const Main = styled.main`
   padding: 2.8em 0.8em 3em;
 
-  @media screen and (min-width: 768px) {
+  ${({ theme }) => theme.media.md`
     padding: 7em 2em 3em;
-  }
+  `}
 
-  @media screen and (min-width: 992px) {
+  ${({ theme }) => theme.media.lg`
     padding: 7em 5em 3em;
-  }
+  `}
 `;
 
 const Grid = styled.div`
@@ -23,14 +23,14 @@ const Grid = styled.div`
   grid-template-rows: auto 1fr;
   min-height: 100vh;
 
-  @media only screen and (min-width: 768px) {
+  ${({ theme }) => theme.media.md`
     grid-template-columns: 250px 1fr;
     grid-template-rows: none;
-  }
+  `}
 
-  @media only screen and (min-width: 992px) {
+  ${({ theme }) => theme.media.lg`
     grid-template-columns: 320px 1fr;
-  }
+  `}
 `;
 
 export default function Layout({ children, location, currentLang }) {

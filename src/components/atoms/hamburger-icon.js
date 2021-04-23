@@ -1,16 +1,14 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const HamburgerIcon = styled.button`
   position: relative;
+  z-index: 6;
   width: 2.5em;
   height: 19px;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   background-color: transparent;
   border: none;
-  transform: rotate(0deg);
   transition: 500ms ease-in-out;
-  z-index: 2;
   transform: translateX(
     ${props => (props.animate ? 'calc(100vw - 120px)' : 0)}
   );

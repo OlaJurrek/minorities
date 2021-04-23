@@ -11,20 +11,20 @@ const StyledName = styled.p`
   text-align: center;
   color: ${({ theme }) => theme.colors.introText};
 
-  @media screen and (min-width: 576px) {
-    font-size: 1.33em;
-    font-weight: 300;
-    font-variation-settings: 'wght' 300, 'wdth' 100;
-  }
+  ${({ theme }) => theme.media.sm`
+      font-size: 1.33em;
+      font-weight: 300;
+      font-variation-settings: 'wght' 300, 'wdth' 100;
+  `}
 `;
 
 const StyledAddition = styled.span`
   display: block;
 
-  @media screen and (min-width: 576px) {
-    font-size: 0.75em;
-    line-height: 1.6;
-  }
+  ${({ theme }) => theme.media.sm`
+      font-size: 0.75em;
+      line-height: 1.6;
+  `}
 `;
 
 const MinorityName = ({ minority: { slug, name, addition } }) => {
