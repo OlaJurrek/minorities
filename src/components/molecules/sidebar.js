@@ -18,6 +18,7 @@ const Aside = styled.aside`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   transition: transform 0.3s ease-in-out;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
+  grid-row: 1 / 3;
 
   ${({ theme }) => theme.media.md`
     position: static;

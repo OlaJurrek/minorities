@@ -4,16 +4,17 @@ import styled from 'styled-components';
 import LangsAndStylesProvider from './langs-and-styles-provider';
 import Sidebar from '../molecules/sidebar';
 import MobileNav from '../molecules/mobile-nav';
+import Footer from '../atoms/footer';
 
 const Main = styled.main`
-  padding: 2.8em 0.8em 3em;
+  padding: 2.8em 0.8em 0;
 
   ${({ theme }) => theme.media.md`
-    padding: 7em 2em 3em;
+    padding: 7em 2em 0;
   `}
 
   ${({ theme }) => theme.media.lg`
-    padding: 7em 5em 3em;
+    padding: 7em 5em 0;
   `}
 `;
 
@@ -65,6 +66,7 @@ export default function Layout({ children, location, currentLang }) {
         />
         <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
         <Main>{children}</Main>
+        <Footer />
       </Grid>
     </LangsAndStylesProvider>
   );

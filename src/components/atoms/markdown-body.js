@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledContent = styled.div`
-  margin-bottom: 3em;
   font-size: 15px;
   line-height: 1.6;
 
