@@ -21,8 +21,6 @@ const LangsAndStylesProvider = ({ children, location, currentLang }) => {
     }
   `);
 
-  console.log('theme', theme);
-
   const url = location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
   const currentLangKey = currentLang;

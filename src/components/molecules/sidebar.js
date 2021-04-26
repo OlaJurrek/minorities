@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import ActiveMarker from '../atoms/active-marker';
+import { DesktopLogo } from '../atoms/desktop-logo';
+import { MenuLink } from '../atoms/menu-link';
 import Facebook from '../atoms/facebook';
 
 const Aside = styled.aside`
@@ -30,24 +32,6 @@ const Aside = styled.aside`
     width: 100%;
     flex-grow: 1;
   }
-
-  .nav-header-wrapper {
-    padding: 2.625em 0;
-    text-align: center;
-    background-color: ${({ theme }) => theme.colors.dark};
-  }
-
-  .nav-header {
-    font-size: 1.8em;
-    font-weight: 200;
-    font-variation-settings: 'wght' 200;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
-  .white-text {
-    color: ${({ theme }) => theme.colors.white};
-  }
 `;
 
 const MenuList = styled.ul`
@@ -55,32 +39,14 @@ const MenuList = styled.ul`
   margin: 0;
   font-variation-settings: 'wght' 380;
 
-  li {
-    div {
-      display: inline-block;
-      max-width: 12em;
-      margin-left: 2em;
-      padding: 0.5em 1em 0.5em 1.8em;
-      border-left: solid 1.5px ${({ theme }) => theme.colors.dark};
-    }
-  }
-
   li.white-text {
     background-color: ${({ theme }) => theme.colors.dark};
-
-    div {
-      border-left: solid 1.5px ${({ theme }) => theme.colors.lightGrey};
-    }
-  }
-
-  a {
-    display: inline-block;
   }
 `;
 
 export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   const [activeElementOffset, setActiveElementOffset] = useState(0);
-  const [offset, setOffset] = useState(activeElementOffset);
+  const [markerOffset, setMarkerOffset] = useState(activeElementOffset);
   const currentLangPrefix = currentLangKey === 'pl' ? '' : currentLangKey + '/';
 
   const data = useStaticQuery(graphql`
@@ -120,56 +86,47 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   const articleTitle = getTitle('article', currentLangKey);
 
   const handleMouseEnter = e => {
-    setOffset(e.target.offsetTop);
+    setMarkerOffset(e.target.offsetTop);
   };
 
   const handleMouseLeave = e => {
-    setOffset(activeElementOffset);
+    setMarkerOffset(activeElementOffset);
   };
 
   useEffect(() => {
     const activeLink = document.getElementsByClassName('active');
 
-    if (activeLink.length) {
-      setActiveElementOffset(activeLink[0].offsetTop);
-    }
+    setActiveElementOffset(activeLink[0].offsetTop);
+    setMarkerOffset(activeLink[0].offsetTop);
   }, []);
 
   return (
     <Aside isOpen={isOpen}>
       <nav>
-        <div className="nav-header-wrapper">
-          <Link to={homeLink} className="nav-header white-text">
-            My - menšiny
-          </Link>
-        </div>
-        <ActiveMarker offset={offset} />
+        <DesktopLogo link={homeLink} text="My menssiny" />
+        <ActiveMarker offset={markerOffset} />
         <MenuList>
           <li className="white-text">
-            <div
+            <MenuLink
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              to={`/${currentLangPrefix}o-projekcie`}
+              activeClassName="active"
+              light="true"
             >
-              <Link
-                to={`/${currentLangPrefix}o-projekcie`}
-                activeClassName="active"
-              >
-                {aboutTitle}
-              </Link>
-            </div>
+              {aboutTitle}
+            </MenuLink>
           </li>
           <li className="white-text">
-            <div
+            <MenuLink
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
+              to={`/${currentLangPrefix}erazim-kohak`}
+              activeClassName="active"
+              light="true"
             >
-              <Link
-                to={`/${currentLangPrefix}erazim-kohak`}
-                activeClassName="active"
-              >
-                {articleTitle}
-              </Link>
-            </div>
+              {articleTitle}
+            </MenuLink>
           </li>
 
           {minoritiesPages.map(
@@ -180,14 +137,14 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
               },
             }) => (
               <li key={slug}>
-                <div
+                <MenuLink
+                  to={`/${slug}`}
+                  activeClassName="active"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                  <Link to={`/${slug}`} activeClassName="active">
-                    {title}
-                  </Link>
-                </div>
+                  {title}
+                </MenuLink>
               </li>
             )
           )}
