@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../templates/layout';
+import ContentLayout from '../templates/content-layout';
 import Headline from '../atoms/headline';
 import Paragraph from '../atoms/paragraph';
 import MarkdownBody from '../atoms/markdown-body';
@@ -17,12 +17,12 @@ export default function Article({
   pageContext: { language },
 }) {
   return (
-    <Layout location={location} currentLang={language}>
+    <ContentLayout location={location} currentLang={language}>
       <BiggerText text={author} />
       <Headline text={title} />
       <MarkdownBody content={html} />
       {translator && <Paragraph>{translator}</Paragraph>}
-    </Layout>
+    </ContentLayout>
   );
 }
 

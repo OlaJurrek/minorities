@@ -9,11 +9,7 @@ import GlobalStyle from '../../styles/GlobalStyle';
 import LanguageNav from '../molecules/language-nav';
 import SkipLink from '../atoms/skip-link';
 
-const LangsAndStylesProvider = ({
-  children,
-  location,
-  pageContext: { langKey },
-}) => {
+const GeneralLayout = ({ children, location, currentLang }) => {
   const { i18n } = useTranslation();
 
   const data = useStaticQuery(graphql`
@@ -31,7 +27,7 @@ const LangsAndStylesProvider = ({
 
   const url = location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
-  const currentLangKey = langKey;
+  const currentLangKey = currentLang;
   const homeLink = `/${currentLangKey}/`.replace(`/${defaultLangKey}/`, '/');
   const langsMenu = getLangs(
     langs,
@@ -58,4 +54,4 @@ const LangsAndStylesProvider = ({
   );
 };
 
-export default LangsAndStylesProvider;
+export default GeneralLayout;

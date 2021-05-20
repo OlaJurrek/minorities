@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import GeneralLayout from '../components/templates/general-layout';
 import AnimatedTitle from '../components/atoms/animated-title';
 import IntroNavigation from '../components/molecules/intro-nav';
 
@@ -17,13 +18,15 @@ const IndexCZ = props => {
   const minoritiesEdges = props.data.allMarkdownRemark.edges;
 
   return (
-    <Intro>
-      <AnimatedTitle link={homeLink} title="My - mniejszości" />
-      <IntroNavigation
-        minorities={minoritiesEdges}
-        currentLang={currentLangKey}
-      />
-    </Intro>
+    <GeneralLayout location={props.location} currentLang={currentLangKey}>
+      <Intro>
+        <AnimatedTitle link={homeLink} title="My - mniejszości" />
+        <IntroNavigation
+          minorities={minoritiesEdges}
+          currentLang={currentLangKey}
+        />
+      </Intro>
+    </GeneralLayout>
   );
 };
 

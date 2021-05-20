@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../templates/layout';
+import ContentLayout from '../templates/content-layout';
 import Headline from '../atoms/headline';
 import BiggerText from '../atoms/bigger-text';
 import MarkdownBody from '../atoms/markdown-body';
@@ -17,7 +17,7 @@ export default function About({
   pageContext: { language },
 }) {
   return (
-    <Layout location={location} currentLang={language}>
+    <ContentLayout location={location} currentLang={language}>
       <Headline text={title} />
       <MarkdownBody content={html} />
       {dates.length > 0 && (
@@ -26,7 +26,7 @@ export default function About({
           <DatesList dates={dates} />
         </>
       )}
-    </Layout>
+    </ContentLayout>
   );
 }
 

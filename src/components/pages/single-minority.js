@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Layout from '../templates/layout';
+import ContentLayout from '../templates/content-layout';
 import Headline from '../atoms/headline';
 import MarkdownBody from '../atoms/markdown-body';
 
@@ -16,10 +16,10 @@ export default function SingleMinority({
 }) {
   const headline = titleAddition ? `${title} ${titleAddition}` : title;
   return (
-    <Layout location={location} currentLang={language}>
+    <ContentLayout location={location} currentLang={language}>
       <Headline text={headline} />
       <MarkdownBody content={html} />
-    </Layout>
+    </ContentLayout>
   );
 }
 
