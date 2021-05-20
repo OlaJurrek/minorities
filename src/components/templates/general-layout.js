@@ -11,7 +11,6 @@ import SkipLink from '../atoms/skip-link';
 
 const GeneralLayout = ({ children, location, currentLang, intro }) => {
   const { i18n } = useTranslation();
-  console.log('intro', intro);
 
   const data = useStaticQuery(graphql`
     query providerQuery {

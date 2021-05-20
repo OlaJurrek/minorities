@@ -213,15 +213,3 @@ collections:
               required: false,
               default: '',
             }
-
-  #---------------------- Other ------------------------
-  - name: settings
-    label: 'Inne teksty'
-    delete: false
-    files:
-      - name: 'title'
-        label: 'Tytuł projektu'
-        file: 'src/content/metadata.json'
-        fields:
-          - { name: 'title_pl', label: 'Polski tytuł', widget: string }
-          - { name: 'title_cz', label: 'Czeski tytuł', widget: string }

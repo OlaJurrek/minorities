@@ -103,7 +103,7 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   return (
     <Aside isOpen={isOpen}>
       <nav>
-        <DesktopLogo link={homeLink} text="My menssiny" />
+        <DesktopLogo link={homeLink} />
         <ActiveMarker offset={markerOffset} />
         <MenuList>
           <li className="white-text">

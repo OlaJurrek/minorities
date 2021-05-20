@@ -29,7 +29,7 @@ const IndexPL = props => {
   return (
     <GeneralLayout location={props.location} currentLang={currentLangKey} intro>
       <Intro>
-        <AnimatedTitle link={homeLink} title="My - mniejszości" />
+        <AnimatedTitle link={homeLink} />
         <IntroNavigation
           minorities={minoritiesEdges}
           currentLang={currentLangKey}
