@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { getLangs, getUrlForLang } from 'ptz-i18n';
+import { useTranslation } from 'react-i18next';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../styles/theme';
 
 import GlobalStyle from '../../styles/GlobalStyle';
 import LanguageNav from '../molecules/language-nav';
+import SkipLink from '../atoms/skip-link';
 
 const LangsAndStylesProvider = ({ children, location, currentLang }) => {
+  const { i18n } = useTranslation();
+
   const data = useStaticQuery(graphql`
     query providerQuery {
       site {
@@ -34,10 +38,17 @@ const LangsAndStylesProvider = ({ children, location, currentLang }) => {
     link: item.link.replace(`/${defaultLangKey}/`, '/'),
   }));
 
+  useEffect(() => {
+    if (i18n.language !== currentLangKey) {
+      i18n.changeLanguage(currentLangKey);
+    }
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyle />
+        <SkipLink />
         <LanguageNav langs={langsMenu} />
         {children}
       </>

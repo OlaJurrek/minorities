@@ -1,0 +1,41 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+
+const StyledLink = styled.a`
+  position: absolute;
+  background: ${({ theme }) => theme.colors.lightGrey};
+  left: 0;
+  padding: 0.25em 0.6em;
+  font-family: ${({ theme }) => theme.fonts.plex};
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  /* transform: translateY(-100%); */
+  transition: transform 0.4s;
+  z-index: 6;
+
+  :focus {
+    transform: translateY(3.2em);
+  }
+
+  ${({ theme }) => theme.media.md`
+    left: 3em;
+    transition: transform 0.3s;
+
+    :focus {
+        transform: translateY(3px);
+    }
+  `}
+
+  ${({ theme }) => theme.media.lg`
+    left: 5.5em;
+  `}
+`;
+
+const SkipLink = () => {
+  const { t } = useTranslation();
+
+  return <StyledLink href="#mainContent">{t('skipToContent')}</StyledLink>;
+};
+
+export default SkipLink;
