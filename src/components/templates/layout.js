@@ -63,7 +63,7 @@ export default function Layout({ children, currentLang }) {
         isOpen={isMobileMenuOpen}
       />
       <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
-      <Main>{children}</Main>
+      <Main id="mainContent">{children}</Main>
       <Footer />
     </Grid>
   );

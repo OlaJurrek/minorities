@@ -10,7 +10,7 @@ const StyledLink = styled.a`
   font-family: ${({ theme }) => theme.fonts.plex};
   font-weight: 600;
   letter-spacing: 0.5px;
-  /* transform: translateY(-100%); */
+  transform: translateY(-100%);
   transition: transform 0.4s;
   z-index: 6;
 
