@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import LangsAndStylesProvider from './langs-and-styles-provider';
 import Sidebar from '../molecules/sidebar';
 import MobileNav from '../molecules/mobile-nav';
 import Footer from '../atoms/footer';
@@ -34,7 +33,7 @@ const Grid = styled.div`
   `}
 `;
 
-export default function Layout({ children, location, currentLang }) {
+export default function Layout({ children, currentLang }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const data = useStaticQuery(graphql`
@@ -57,17 +56,15 @@ export default function Layout({ children, location, currentLang }) {
   };
 
   return (
-    <LangsAndStylesProvider location={location} currentLang={currentLang}>
-      <Grid>
-        <Sidebar
-          homeLink={homeLink}
-          currentLangKey={currentLang}
-          isOpen={isMobileMenuOpen}
-        />
-        <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
-        <Main>{children}</Main>
-        <Footer />
-      </Grid>
-    </LangsAndStylesProvider>
+    <Grid>
+      <Sidebar
+        homeLink={homeLink}
+        currentLangKey={currentLang}
+        isOpen={isMobileMenuOpen}
+      />
+      <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
+      <Main>{children}</Main>
+      <Footer />
+    </Grid>
   );
 }

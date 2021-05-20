@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import AnimatedTitle from '../components/atoms/animated-title';
 import IntroNavigation from '../components/molecules/intro-nav';
-import LangsAndStylesProvider from '../components/templates/langs-and-styles-provider';
 
 const Intro = styled.div`
   font-family: 'Plex', sans-serif;
@@ -18,18 +17,13 @@ const IndexCZ = props => {
   const minoritiesEdges = props.data.allMarkdownRemark.edges;
 
   return (
-    <LangsAndStylesProvider
-      location={props.location}
-      currentLang={props.pageContext.language}
-    >
-      <Intro>
-        <AnimatedTitle link={homeLink} title="My - mniejszości" />
-        <IntroNavigation
-          minorities={minoritiesEdges}
-          currentLang={currentLangKey}
-        />
-      </Intro>
-    </LangsAndStylesProvider>
+    <Intro>
+      <AnimatedTitle link={homeLink} title="My - mniejszości" />
+      <IntroNavigation
+        minorities={minoritiesEdges}
+        currentLang={currentLangKey}
+      />
+    </Intro>
   );
 };
 

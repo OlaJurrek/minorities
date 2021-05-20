@@ -9,7 +9,11 @@ import GlobalStyle from '../../styles/GlobalStyle';
 import LanguageNav from '../molecules/language-nav';
 import SkipLink from '../atoms/skip-link';
 
-const LangsAndStylesProvider = ({ children, location, currentLang }) => {
+const LangsAndStylesProvider = ({
+  children,
+  location,
+  pageContext: { langKey },
+}) => {
   const { i18n } = useTranslation();
 
   const data = useStaticQuery(graphql`
@@ -27,7 +31,7 @@ const LangsAndStylesProvider = ({ children, location, currentLang }) => {
 
   const url = location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
-  const currentLangKey = currentLang;
+  const currentLangKey = langKey;
   const homeLink = `/${currentLangKey}/`.replace(`/${defaultLangKey}/`, '/');
   const langsMenu = getLangs(
     langs,
@@ -42,16 +46,14 @@ const LangsAndStylesProvider = ({ children, location, currentLang }) => {
     if (i18n.language !== currentLangKey) {
       i18n.changeLanguage(currentLangKey);
     }
-  }, []);
+  }, [currentLangKey, i18n]);
 
   return (
     <ThemeProvider theme={theme}>
-      <>
-        <GlobalStyle />
-        <SkipLink />
-        <LanguageNav langs={langsMenu} />
-        {children}
-      </>
+      <GlobalStyle />
+      <SkipLink />
+      <LanguageNav langs={langsMenu} />
+      {children}
     </ThemeProvider>
   );
 };
