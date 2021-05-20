@@ -9,8 +9,9 @@ import GlobalStyle from '../../styles/GlobalStyle';
 import LanguageNav from '../molecules/language-nav';
 import SkipLink from '../atoms/skip-link';
 
-const GeneralLayout = ({ children, location, currentLang }) => {
+const GeneralLayout = ({ children, location, currentLang, intro }) => {
   const { i18n } = useTranslation();
+  console.log('intro', intro);
 
   const data = useStaticQuery(graphql`
     query providerQuery {
@@ -47,7 +48,7 @@ const GeneralLayout = ({ children, location, currentLang }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <SkipLink />
+      <SkipLink intro={intro} />
       <LanguageNav langs={langsMenu} />
       {children}
     </ThemeProvider>

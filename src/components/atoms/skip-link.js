@@ -15,7 +15,7 @@ const StyledLink = styled.a`
   z-index: 6;
 
   :focus {
-    transform: translateY(3.2em);
+    transform: translateY(${({ intro }) => (intro ? '0.5em' : '3.2em')});
   }
 
   ${({ theme }) => theme.media.md`
@@ -32,10 +32,14 @@ const StyledLink = styled.a`
   `}
 `;
 
-const SkipLink = () => {
+const SkipLink = props => {
   const { t } = useTranslation();
 
-  return <StyledLink href="#mainContent">{t('skipToContent')}</StyledLink>;
+  return (
+    <StyledLink {...props} href="#mainContent">
+      {t('skipToContent')}
+    </StyledLink>
+  );
 };
 
 export default SkipLink;

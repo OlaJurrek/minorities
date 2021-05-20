@@ -7,6 +7,7 @@ import IntroNavigation from '../components/molecules/intro-nav';
 
 const Intro = styled.div`
   height: 100vh;
+  padding-top: 4.5em;
   font-family: 'Plex', sans-serif;
   color: #1a1a1a;
   text-align: center;
@@ -15,6 +16,7 @@ const Intro = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 0;
   }
 `;
 
@@ -25,7 +27,7 @@ const IndexPL = props => {
   const minoritiesEdges = props.data.allMarkdownRemark.edges;
 
   return (
-    <GeneralLayout location={props.location} currentLang={currentLangKey}>
+    <GeneralLayout location={props.location} currentLang={currentLangKey} intro>
       <Intro>
         <AnimatedTitle link={homeLink} title="My - mniejszości" />
         <IntroNavigation
