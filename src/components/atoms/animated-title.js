@@ -12,6 +12,7 @@ const TitleWrapper = styled.h1`
   font-size: 2.4em;
   font-weight: 300;
   font-variation-settings: 'wght' var(--weight), 'wdth' var(--width);
+  line-height: 1.1;
   text-transform: uppercase;
 
   ${({ theme }) => theme.media.sm`
@@ -20,6 +21,14 @@ const TitleWrapper = styled.h1`
 
   span {
     display: inline-block;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  display: inline-block;
+
+  :focus {
+    outline-offset: 8px;
   }
 `;
 
@@ -65,13 +74,13 @@ const AnimatedTitle = ({ link, text }) => {
 
   return (
     <TitleWrapper ref={wrapper}>
-      <Link to={link}>
+      <StyledLink to={link}>
         <div ref={titleRef}>
           <span>{m}</span>
           <span>{middle}</span>
           <span>{y}</span>
         </div>
-      </Link>
+      </StyledLink>
     </TitleWrapper>
   );
 };

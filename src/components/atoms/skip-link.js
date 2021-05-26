@@ -4,8 +4,8 @@ import styled from 'styled-components';
 
 const StyledLink = styled.a`
   position: absolute;
-  background: ${({ theme }) => theme.colors.lightGrey};
-  left: 0;
+  background: ${({ theme }) => theme.colors.white};
+  left: 0.8em;
   padding: 0.25em 0.6em;
   font-family: ${({ theme }) => theme.fonts.plex};
   font-weight: 600;
@@ -21,6 +21,8 @@ const StyledLink = styled.a`
   ${({ theme }) => theme.media.md`
     left: 3em;
     transition: transform 0.3s;
+    background: ${({ theme, intro }) =>
+      intro ? theme.colors.white : theme.colors.lightGrey};
 
     :focus {
         transform: translateY(3px);

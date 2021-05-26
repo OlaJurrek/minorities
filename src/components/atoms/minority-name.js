@@ -3,11 +3,15 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const StyledLink = styled(Link)`
-  display: block;
+  display: inline-block;
+
+  :focus {
+    outline-offset: 10px;
+  }
 `;
 
 const StyledName = styled.p`
-  margin: 1.2em 0;
+  margin: 0;
   text-align: center;
   color: ${({ theme }) => theme.colors.introText};
 

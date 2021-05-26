@@ -11,4 +11,10 @@ export const MenuLink = styled(Link)`
       light ? theme.colors.lightGrey : theme.colors.dark};
   color: ${({ theme, light }) =>
     light ? theme.colors.lightGrey : theme.colors.black};
+
+  :focus {
+    outline: 2px solid
+      ${({ theme, light }) =>
+        light ? theme.colors.lightOrange : theme.colors.orange};
+  }
 `;

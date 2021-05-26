@@ -20,6 +20,11 @@ const StyledLogo = styled(Link)`
   text-transform: uppercase;
   color: ${({ theme }) => theme.colors.white};
 
+  :focus {
+    outline: 2px solid ${({ theme }) => theme.colors.lightOrange};
+    outline-offset: 10px;
+  }
+
   ${({ theme }) => theme.media.lg`
     font-size: 1.8em;
   `}

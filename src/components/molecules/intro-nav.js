@@ -29,6 +29,7 @@ const NavigationList = styled.ul`
 
 const NavigationListItem = styled.li`
   flex: 0 0 50%;
+  margin: 1.2em 0;
 
   ${({ theme }) => theme.media.sm`
       position: absolute;

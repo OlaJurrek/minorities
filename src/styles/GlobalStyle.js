@@ -43,6 +43,10 @@ a {
   color: inherit;
 }
 
+a:focus, button:focus {
+  outline: 2px solid ${({ theme }) => theme.colors.orange};
+}
+
 b,
 strong {
   font-weight: bolder;

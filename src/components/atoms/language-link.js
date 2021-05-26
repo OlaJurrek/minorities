@@ -13,6 +13,10 @@ const StyledLink = styled(props => <Link {...props} />)`
   color: ${({ theme, selected }) =>
     selected ? theme.colors.black : theme.colors.dark};
 
+  :focus {
+    outline-offset: 4px;
+  }
+
   ${({ theme }) => theme.media.lg`
     font-size: 1.7em;
   `}

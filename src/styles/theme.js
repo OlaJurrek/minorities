@@ -14,7 +14,9 @@ export const theme = {
     black: '#0d0d0d',
     introText: '#1a1a1a',
     white: '#fff',
-    orange: '#e4620e',
+    // orange: '#e4620e',
+    orange: '#D85F0E',
+    lightOrange: '#F79C5E',
     pink: '#b04c90',
   },
   fonts: {
