@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
+import gsap from 'gsap';
 import MinorityName from '../atoms/minority-name';
 
 const StyledNav = styled.nav`
@@ -71,13 +72,15 @@ const NavigationListItem = styled.li`
 `;
 
 const IntroNavigation = ({ minorities, currentLang }) => {
-  const allMinorities = minorities.map(page => {
+  const wrapper = useRef(null);
+
+  const allMinorities = minorities.map(({ node: { fields, frontmatter } }) => {
     return {
-      name: page.node.frontmatter.title,
-      addition: page.node.frontmatter.titleAddition,
-      slug: page.node.fields.slug,
-      lang: page.node.fields.lang,
-      path: page.node.frontmatter.path,
+      name: frontmatter.title,
+      addition: frontmatter.titleAddition,
+      slug: fields.slug,
+      lang: fields.lang,
+      path: frontmatter.path,
     };
   });
   const currentLangMinorities = allMinorities.filter(
@@ -94,9 +97,25 @@ const IntroNavigation = ({ minorities, currentLang }) => {
     return minority;
   });
 
+  useEffect(() => {
+    const listItems = wrapper.current.children;
+
+    gsap.set([listItems], {
+      autoAlpha: 0,
+    });
+
+    gsap.to(listItems, {
+      autoAlpha: 1,
+      delay: 1,
+      duration: 4,
+      ease: 'power4.inOut',
+      stagger: 0.3,
+    });
+  }, []);
+
   return (
     <StyledNav>
-      <NavigationList>
+      <NavigationList ref={wrapper}>
         {translatedMinorities.map((minority, index) => (
           <NavigationListItem key={index}>
             <MinorityName minority={minority} />

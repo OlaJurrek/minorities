@@ -10,14 +10,13 @@ const TitleWrapper = styled.h1`
   position: relative;
   z-index: 3;
   margin: 0 0 0.4em;
-  font-size: 2em;
+  font-size: 2.4em;
   font-weight: 300;
   font-variation-settings: 'wght' var(--weight), 'wdth' var(--width);
   text-transform: uppercase;
 
   ${({ theme }) => theme.media.sm`
     margin: 0;
-    font-size: 2.4em;
   `}
 
   span {
@@ -46,12 +45,12 @@ const AnimatedTitle = ({ link }) => {
 
     tl.fromTo(
       mRef,
-      { transform: 'translate3d(90px,-55vh,0)' },
+      { transform: 'translate3d(90px,-300px,0)' },
       { duration: 3, transform: 'translate3d(90px,-50%,0)', autoAlpha: 1 }
     )
       .fromTo(
         yRef,
-        { transform: 'translate3d(-90px,-55vh,0)' },
+        { transform: 'translate3d(-90px,-300px,0)' },
         { duration: 3, transform: 'translate3d(-90px,-50%,0)', autoAlpha: 1 },
         '-=2.5'
       )
@@ -64,7 +63,7 @@ const AnimatedTitle = ({ link }) => {
         { duration: 2, '--weight': 350, '--width': 100 },
         '-=1.5'
       );
-  });
+  }, []);
 
   return (
     <TitleWrapper ref={wrapper}>
