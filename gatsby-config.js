@@ -2,6 +2,8 @@ const languages = require('./src/i18n/i18n-config');
 
 module.exports = {
   siteMetadata: {
+    title: 'My - menšiny',
+    alternativeTitle: 'My - mniejszości',
     shortTitle: 'MY',
     languages,
   },

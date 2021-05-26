@@ -25,11 +25,12 @@ const IndexCZ = props => {
   const currentLangKey = props.pageContext.langKey;
   const homeLink = `/${currentLangKey}/`.replace(`/${defaultLangKey}/`, '/');
   const minoritiesEdges = props.data.allMarkdownRemark.edges;
+  const title = props.data.site.siteMetadata.title;
 
   return (
     <GeneralLayout location={props.location} currentLang={currentLangKey} intro>
       <Intro>
-        <AnimatedTitle link={homeLink} />
+        <AnimatedTitle link={homeLink} text={title} />
         <IntroNavigation
           minorities={minoritiesEdges}
           currentLang={currentLangKey}
@@ -61,6 +62,7 @@ export const query = graphql`
     }
     site {
       siteMetadata {
+        title
         languages {
           defaultLangKey
         }

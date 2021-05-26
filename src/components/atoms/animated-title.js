@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'gatsby';
-import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import gsap from 'gsap';
 
@@ -24,9 +23,8 @@ const TitleWrapper = styled.h1`
   }
 `;
 
-const AnimatedTitle = ({ link }) => {
-  const { t } = useTranslation();
-  const title = t('mainTitle').toUpperCase().split('');
+const AnimatedTitle = ({ link, text }) => {
+  const title = text.toUpperCase().split('');
   const m = title[0];
   const y = title[title.length - 1];
   const middle = title.slice(1, title.length - 1).join('');

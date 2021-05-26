@@ -83,6 +83,7 @@ const IntroNavigation = ({ minorities, currentLang }) => {
       path: frontmatter.path,
     };
   });
+
   const currentLangMinorities = allMinorities.filter(
     obj => obj.lang === currentLang
   );
@@ -96,6 +97,8 @@ const IntroNavigation = ({ minorities, currentLang }) => {
     }
     return minority;
   });
+
+  translatedMinorities.sort((a, b) => a.name.localeCompare(b.name));
 
   useEffect(() => {
     const listItems = wrapper.current.children;

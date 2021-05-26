@@ -5,12 +5,12 @@ export const HamburgerIcon = styled.button`
   z-index: 6;
   width: 2.5em;
   height: 19px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   background-color: transparent;
   border: none;
   transition: 500ms ease-in-out;
   transform: translateX(
-    ${props => (props.animate ? 'calc(100vw - 120px)' : 0)}
+    ${props => (props.animate ? 'calc(100vw - 110px)' : 0)}
   );
 
   &:focus {

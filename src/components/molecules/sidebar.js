@@ -74,6 +74,10 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
       page.node.fields.lang === currentLangKey
   );
 
+  minoritiesPages.sort((a, b) =>
+    a.node.frontmatter.title.localeCompare(b.node.frontmatter.title)
+  );
+
   const getTitle = (type, lang) => {
     const selectedPage = data.allMarkdownRemark.edges.find(
       page =>
