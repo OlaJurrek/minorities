@@ -44,6 +44,14 @@ const MenuList = styled.ul`
   }
 `;
 
+const MenuLinkWrapper = styled.div`
+  margin-left: 2em;
+  padding: 0.5em 1em 0.5em 1.8em;
+  border-left: solid 1.5px
+    ${({ theme, light }) =>
+      light ? theme.colors.lightGrey : theme.colors.dark};
+`;
+
 export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   const [activeElementOffset, setActiveElementOffset] = useState(0);
   const [markerOffset, setMarkerOffset] = useState(activeElementOffset);
@@ -111,26 +119,30 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
         <ActiveMarker offset={markerOffset} />
         <MenuList>
           <li className="white-text">
-            <MenuLink
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              to={`/${currentLangPrefix}o-projekcie`}
-              activeClassName="active"
-              light="true"
-            >
-              {aboutTitle}
-            </MenuLink>
+            <MenuLinkWrapper light="true">
+              <MenuLink
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                to={`/${currentLangPrefix}o-projekcie`}
+                activeClassName="active"
+                light="true"
+              >
+                {aboutTitle}
+              </MenuLink>
+            </MenuLinkWrapper>
           </li>
           <li className="white-text">
-            <MenuLink
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              to={`/${currentLangPrefix}erazim-kohak`}
-              activeClassName="active"
-              light="true"
-            >
-              {articleTitle}
-            </MenuLink>
+            <MenuLinkWrapper light="true">
+              <MenuLink
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                to={`/${currentLangPrefix}erazim-kohak`}
+                activeClassName="active"
+                light="true"
+              >
+                {articleTitle}
+              </MenuLink>
+            </MenuLinkWrapper>
           </li>
 
           {minoritiesPages.map(
@@ -141,14 +153,16 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
               },
             }) => (
               <li key={slug}>
-                <MenuLink
-                  to={`/${slug}`}
-                  activeClassName="active"
-                  onMouseEnter={handleMouseEnter}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  {title}
-                </MenuLink>
+                <MenuLinkWrapper>
+                  <MenuLink
+                    to={`/${slug}`}
+                    activeClassName="active"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {title}
+                  </MenuLink>
+                </MenuLinkWrapper>
               </li>
             )
           )}
