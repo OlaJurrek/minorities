@@ -47,7 +47,7 @@ const StyledLogo = styled(Link)`
   }
 
   ${({ theme }) => theme.media.lg`
-    font-size: 1.8em;
+    font-size: 2.2em;
   `}
 `;
 

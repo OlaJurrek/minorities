@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledHeadline = styled.h1`
-  margin: 0 0 1.6em;
+const StyledWrapper = styled.div`
   text-align: center;
+`;
+
+const StyledHeadline = styled.h1`
+  display: inline-block;
+  margin: 0 0 1.6em;
   color: ${({ theme }) => theme.colors.black};
   font-family: ${({ theme }) => theme.fonts.plex};
   font-size: 1.6em;
@@ -21,15 +25,19 @@ const StyledHeadline = styled.h1`
     font-size: 2.2em;
     font-variation-settings: 'wght' 550;
   `}
+
+  :focus {
+    outline: 2px solid ${({ theme }) => theme.colors.orange};
+    outline-offset: 4px;
+  }
 `;
 
 const StyledWord = styled.span`
   display: inline-block;
+  margin: 0.2em 0.09em;
+  padding: 0.3em ${({ singleWord }) => (singleWord ? '0.3em' : '0.6em')} 0.15em;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.orange};
-  padding: 0.3em ${({ singleWord }) => (singleWord ? '0.3em' : '0.6em')} 0.15em;
-  margin-right: 0.18em;
-  margin-bottom: 0.2em;
 `;
 
 const Headline = ({ text }) => {
@@ -38,13 +46,15 @@ const Headline = ({ text }) => {
   console.log(headline);
 
   return (
-    <StyledHeadline>
-      {headline.map((word, index) => (
-        <StyledWord singleWord={singleWord} key={word + index}>
-          {word}
-        </StyledWord>
-      ))}
-    </StyledHeadline>
+    <StyledWrapper>
+      <StyledHeadline id="mainContent" tabIndex="-1">
+        {headline.map((word, index) => (
+          <StyledWord singleWord={singleWord} key={word + index}>
+            {word}
+          </StyledWord>
+        ))}
+      </StyledHeadline>
+    </StyledWrapper>
   );
 };
 

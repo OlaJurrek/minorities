@@ -65,7 +65,7 @@ export default function ContentLayout({ children, location, currentLang }) {
           isOpen={isMobileMenuOpen}
         />
         <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
-        <Main id="mainContent">{children}</Main>
+        <Main>{children}</Main>
         <Footer />
       </Grid>
     </GeneralLayout>
