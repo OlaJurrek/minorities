@@ -28,7 +28,7 @@ const IndexPL = props => {
   const title = props.data.site.siteMetadata.title;
 
   return (
-    <GeneralLayout location={props.location} currentLang={currentLangKey} intro>
+    <GeneralLayout location={props.location} currentLang={currentLangKey}>
       <Intro>
         <AnimatedTitle link={homeLink} text={title} />
         <IntroNavigation

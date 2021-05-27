@@ -57,7 +57,7 @@ export default function ContentLayout({ children, location, currentLang }) {
   };
 
   return (
-    <GeneralLayout location={location} currentLang={currentLang}>
+    <GeneralLayout location={location} currentLang={currentLang} contentPage>
       <Grid>
         <Sidebar
           homeLink={homeLink}
