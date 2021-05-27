@@ -8,7 +8,27 @@ const StyledWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.dark};
 
   ${({ theme }) => theme.media.lg`
+    position: relative;
     padding: 2.625em 0;
+
+    ::before, ::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    height: 100%;
+  }
+
+    ::before {
+      width: 25px;
+      right: -26px;
+      background-color: ${({ theme }) => theme.colors.dark};
+    }
+
+    ::after {
+      width: 1px;
+      right: -1px;
+      background-color: ${({ theme }) => theme.colors.lightGrey};
+    }
   `}
 `;
 

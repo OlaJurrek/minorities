@@ -27,6 +27,10 @@ const Aside = styled.aside`
     padding-bottom: 1em;
   `}
 
+  ${({ theme }) => theme.media.lg`
+    border-right: 1px solid ${({ theme }) => theme.colors.dark};
+  `}
+
   nav {
     width: 100%;
     flex-grow: 1;
@@ -40,6 +44,29 @@ const MenuList = styled.ul`
 
   li.white-text {
     background-color: ${({ theme }) => theme.colors.dark};
+    position: relative;
+
+    ${({ theme }) => theme.media.lg`
+    ::before,
+    ::after {
+      position: absolute;
+      content: '';
+      top: 0;
+      height: 100%;
+    }
+
+    ::before {
+      width: 25px;
+      right: -26px;
+      background-color: ${({ theme }) => theme.colors.dark};
+    }
+
+    ::after {
+      width: 1px;
+      right: -1px;
+      background-color: ${({ theme }) => theme.colors.lightGrey};
+    }
+  `}
   }
 `;
 
