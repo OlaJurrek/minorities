@@ -16,7 +16,6 @@ const Aside = styled.aside`
   flex-direction: column;
   align-items: center;
   padding-bottom: 0.5em;
-  font-family: ${({ theme }) => theme.fonts.plex};
   background-color: ${({ theme }) => theme.colors.lightGrey};
   transition: transform 0.3s ease-in-out;
   transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});

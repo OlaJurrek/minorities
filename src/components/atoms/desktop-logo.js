@@ -13,6 +13,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledLogo = styled(Link)`
+  font-family: ${({ theme }) => theme.fonts.plex};
   font-size: 1.8em;
   font-weight: 200;
   font-variation-settings: 'wght' 200;
