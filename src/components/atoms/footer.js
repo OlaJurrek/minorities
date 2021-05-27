@@ -27,7 +27,7 @@ const StyledCopyright = styled.p`
     top: 3px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: ${({ theme }) => theme.colors.dark};
+    background-color: ${({ theme }) => theme.colors.orange};
   }
 `;
 

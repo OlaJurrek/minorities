@@ -10,7 +10,7 @@ const Marker = styled.i`
   margin-left: 1em;
   background-image: radial-gradient(
     ${({ theme }) => theme.colors.lightGrey} 35%,
-    ${({ theme }) => theme.colors.dark} 39% 100%
+    ${({ theme }) => theme.colors.orange} 39% 100%
   );
   border: 1.5px solid ${({ theme }) => theme.colors.lightGrey};
   border-radius: 50%;
