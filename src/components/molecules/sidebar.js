@@ -94,6 +94,7 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
             }
             frontmatter {
               title
+              titleAddition
               type
             }
           }
@@ -117,6 +118,9 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
       page =>
         page.node.frontmatter.type === type && page.node.fields.lang === lang
     );
+    const titleAddition = selectedPage.node.frontmatter.titleAddition
+      ? selectedPage.node.frontmatter.titleAddition
+      : '';
     return selectedPage.node.frontmatter.title;
   };
 
@@ -175,22 +179,25 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
             ({
               node: {
                 fields: { slug },
-                frontmatter: { title },
+                frontmatter: { title, titleAddition },
               },
-            }) => (
-              <li key={slug}>
-                <MenuLinkWrapper>
-                  <MenuLink
-                    to={`/${slug}`}
-                    activeClassName="active"
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    {title}
-                  </MenuLink>
-                </MenuLinkWrapper>
-              </li>
-            )
+            }) => {
+              const addition = titleAddition ? ` ${titleAddition}` : '';
+              return (
+                <li key={slug}>
+                  <MenuLinkWrapper>
+                    <MenuLink
+                      to={`/${slug}`}
+                      activeClassName="active"
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                    >
+                      {title + addition}
+                    </MenuLink>
+                  </MenuLinkWrapper>
+                </li>
+              );
+            }
           )}
         </MenuList>
       </nav>

@@ -43,7 +43,6 @@ const StyledWord = styled.span`
 const Headline = ({ text }) => {
   const headline = text.trim().split(' ');
   const singleWord = headline.length > 1 ? true : false;
-  console.log(headline);
 
   return (
     <StyledWrapper>
