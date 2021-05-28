@@ -4,7 +4,12 @@ module.exports = {
   siteMetadata: {
     title: 'My - menšiny',
     alternativeTitle: 'My - mniejszości',
+    titleTemplate: '%s · My - menšiny',
     shortTitle: 'MY',
+    description:
+      'Projekt przybliżający mniejszości zamieszkujące Polskę i Czechy',
+    image: '/images/logo/png',
+    url: 'https://my-mensiny.netlify.app',
     languages,
   },
   plugins: [
@@ -50,5 +55,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-react-helmet`,
   ],
 };

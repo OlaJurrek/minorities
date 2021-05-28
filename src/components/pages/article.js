@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import ContentLayout from '../templates/content-layout';
+import Seo from '../providers/seo';
 import Headline from '../atoms/headline';
 import Paragraph from '../atoms/paragraph';
 import MarkdownBody from '../atoms/markdown-body';
@@ -18,6 +19,7 @@ export default function Article({
 }) {
   return (
     <ContentLayout location={location} currentLang={language}>
+      <Seo title={title} lang={language} />
       <BiggerText text={author} />
       <Headline text={title} />
       <MarkdownBody content={html} />

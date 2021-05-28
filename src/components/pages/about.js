@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import ContentLayout from '../templates/content-layout';
+import Seo from '../providers/seo';
 import Headline from '../atoms/headline';
 import BiggerText from '../atoms/bigger-text';
 import MarkdownBody from '../atoms/markdown-body';
@@ -18,6 +19,7 @@ export default function About({
 }) {
   return (
     <ContentLayout location={location} currentLang={language}>
+      <Seo title={title} lang={language} />
       <Headline text={title} />
       <MarkdownBody content={html} />
       {dates.length > 0 && (

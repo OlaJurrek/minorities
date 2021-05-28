@@ -118,9 +118,6 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
       page =>
         page.node.frontmatter.type === type && page.node.fields.lang === lang
     );
-    const titleAddition = selectedPage.node.frontmatter.titleAddition
-      ? selectedPage.node.frontmatter.titleAddition
-      : '';
     return selectedPage.node.frontmatter.title;
   };
 

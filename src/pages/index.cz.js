@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import GeneralLayout from '../components/templates/general-layout';
+import Seo from '../components/providers/seo';
 import AnimatedTitle from '../components/atoms/animated-title';
 import IntroNavigation from '../components/molecules/intro-nav';
 
@@ -29,6 +30,7 @@ const IndexCZ = props => {
 
   return (
     <GeneralLayout location={props.location} currentLang={currentLangKey}>
+      <Seo lang={currentLangKey} />
       <Intro>
         <AnimatedTitle link={homeLink} text={title} />
         <IntroNavigation
