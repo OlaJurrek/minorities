@@ -3,8 +3,9 @@ import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
+import FacebookCard from './facebook-card';
 
-const Seo = ({ defaultPathname, description, lang, meta, title, image }) => {
+const SEO = ({ defaultPathname, description, lang, title, image, ogType }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
 
@@ -29,48 +30,58 @@ const Seo = ({ defaultPathname, description, lang, meta, title, image }) => {
   };
 
   return (
-    <Helmet
-      title={seo.title}
-      titleTemplate={seo.title === defaultTitle ? '' : titleTemplate}
-      defer={false}
-    >
-      <html lang={langCode} />
-      <meta name="description" content={seo.description} />
-      <meta name="image" content={seo.image} />
-      <link rel="canonical" href={seo.url} />
-      <link
-        rel="alternate"
-        hreflang={i18nConfig.defaultLanguage.isoCode}
-        href={siteUrl + defaultPathname}
+    <>
+      <Helmet
+        title={seo.title}
+        titleTemplate={seo.title === defaultTitle ? '' : titleTemplate}
+        defer={false}
+      >
+        <html lang={langCode} />
+        <meta name="description" content={seo.description} />
+        <meta name="image" content={seo.image} />
+        <link rel="canonical" href={seo.url} />
+        <link
+          rel="alternate"
+          hreflang={i18nConfig.defaultLanguage.isoCode}
+          href={siteUrl + defaultPathname}
+        />
+        {i18nConfig.languages
+          .filter(item => item.isoCode !== i18nConfig.defaultLanguage.isoCode)
+          .map(item => (
+            <link
+              key={item.isoCode}
+              rel="alternate"
+              hreflang={item.isoCode}
+              href={`${siteUrl}/${item.pathCode}${defaultPathname}`}
+            />
+          ))}
+        <link
+          rel="alternate"
+          hreflang="x-default"
+          href={siteUrl + defaultPathname}
+        />
+      </Helmet>
+      <FacebookCard
+        url={seo.url}
+        title={seo.title}
+        desc={seo.description}
+        image={seo.image}
+        type={ogType}
+        locale={langCode}
       />
-      {i18nConfig.languages
-        .filter(item => item.isoCode !== i18nConfig.defaultLanguage.isoCode)
-        .map(item => (
-          <link
-            key={item.isoCode}
-            rel="alternate"
-            hreflang={item.isoCode}
-            href={`${siteUrl}/${item.pathCode}${defaultPathname}`}
-          />
-        ))}
-      <link
-        rel="alternate"
-        hreflang="x-default"
-        href={siteUrl + defaultPathname}
-      />
-    </Helmet>
+    </>
   );
 };
 
-export default Seo;
+export default SEO;
 
-Seo.propTypes = {
+SEO.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
   article: PropTypes.bool,
 };
-Seo.defaultProps = {
+SEO.defaultProps = {
   title: null,
   description: null,
   image: null,

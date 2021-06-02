@@ -1,7 +1,7 @@
 module.exports = {
   languages: [
-    { pathCode: 'pl', isoCode: 'pl' },
-    { pathCode: 'cz', isoCode: 'cs' },
+    { pathCode: 'pl', isoCode: 'pl-PL' },
+    { pathCode: 'cz', isoCode: 'cs-CZ' },
   ],
-  defaultLanguage: { pathCode: 'pl', isoCode: 'pl' },
+  defaultLanguage: { pathCode: 'pl', isoCode: 'pl-PL' },
 };

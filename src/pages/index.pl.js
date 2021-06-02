@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import GeneralLayout from '../components/templates/general-layout';
-import Seo from '../components/providers/seo';
+import SEO from '../components/seo/SEO';
 import AnimatedTitle from '../components/atoms/animated-title';
 import IntroNavigation from '../components/molecules/intro-nav';
 
@@ -33,7 +33,7 @@ const IndexPL = props => {
 
   return (
     <GeneralLayout location={props.location} currentLang={currentLangKey}>
-      <Seo lang={currentLangKey} />
+      <SEO lang={currentLangKey} />
       <Intro>
         <AnimatedTitle link={homeLink} text={title} />
         <IntroNavigation

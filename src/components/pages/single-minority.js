@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import ContentLayout from '../templates/content-layout';
-import Seo from '../providers/seo';
+import SEO from '../seo/SEO';
 import Headline from '../atoms/headline';
 import MarkdownBody from '../atoms/markdown-body';
 
@@ -18,7 +18,12 @@ export default function SingleMinority({
   const fullTitle = titleAddition ? `${title} ${titleAddition}` : title;
   return (
     <ContentLayout location={location} currentLang={language}>
-      <Seo title={fullTitle} lang={language} defaultPathname={defaultSlug} />
+      <SEO
+        title={fullTitle}
+        lang={language}
+        defaultPathname={defaultSlug}
+        ogType="article"
+      />
       <Headline text={fullTitle} />
       <MarkdownBody content={html} />
     </ContentLayout>
