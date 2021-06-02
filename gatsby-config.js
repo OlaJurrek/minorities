@@ -9,7 +9,7 @@ module.exports = {
     description:
       'Projekt przybliżający mniejszości zamieszkujące Polskę i Czechy',
     image: '/images/logo/png',
-    url: 'https://my-mensiny.netlify.app',
+    siteUrl: 'https://my-mensiny.netlify.app',
     i18nConfig,
   },
   plugins: [
@@ -56,5 +56,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
   ],
 };
