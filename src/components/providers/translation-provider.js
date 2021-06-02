@@ -1,7 +1,7 @@
 import React from 'react';
 import i18next from 'i18next';
 import { I18nextProvider } from 'react-i18next';
-import * as langConfig from '../../i18n/i18n-config';
+import * as i18nConfig from '../../i18n/i18n-config';
 
 const TranslationProvider = ({ children }) => {
   i18next.init({
@@ -26,7 +26,7 @@ const TranslationProvider = ({ children }) => {
     },
   });
 
-  const languagesList = langConfig.langs.map(lang => lang.pathCode);
+  const languagesList = i18nConfig.languages.map(lang => lang.pathCode);
 
   i18next.languages = languagesList;
 

@@ -1,7 +1,7 @@
 module.exports = {
-  langs: [
+  languages: [
     { pathCode: 'pl', isoCode: 'pl' },
     { pathCode: 'cz', isoCode: 'cs' },
   ],
-  defaultLangKey: { pathCode: 'pl', isoCode: 'pl' },
+  defaultLanguage: { pathCode: 'pl', isoCode: 'pl' },
 };

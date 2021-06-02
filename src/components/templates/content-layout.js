@@ -41,8 +41,8 @@ export default function ContentLayout({ children, location, currentLang }) {
     query {
       site {
         siteMetadata {
-          languages {
-            defaultLangKey {
+          i18nConfig {
+            defaultLanguage {
               pathCode
             }
           }
@@ -51,9 +51,9 @@ export default function ContentLayout({ children, location, currentLang }) {
     }
   `);
 
-  const { defaultLangKey } = data.site.siteMetadata.languages;
+  const { defaultLanguage } = data.site.siteMetadata.i18nConfig;
   const homeLink = `/${currentLang}/`.replace(
-    `/${defaultLangKey.pathCode}/`,
+    `/${defaultLanguage.pathCode}/`,
     '/'
   );
 

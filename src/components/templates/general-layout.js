@@ -16,11 +16,11 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
     query providerQuery {
       site {
         siteMetadata {
-          languages {
-            defaultLangKey {
+          i18nConfig {
+            defaultLanguage {
               pathCode
             }
-            langs {
+            languages {
               pathCode
             }
           }
@@ -30,11 +30,11 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
   `);
 
   const url = location.pathname;
-  const { langs, defaultLangKey } = data.site.siteMetadata.languages;
-  const languagesList = langs.map(lang => lang.pathCode);
+  const { languages, defaultLanguage } = data.site.siteMetadata.i18nConfig;
+  const languagesList = languages.map(lang => lang.pathCode);
   const currentLangKey = currentLang;
   const homeLink = `/${currentLangKey}/`.replace(
-    `/${defaultLangKey.pathCode}/`,
+    `/${defaultLanguage.pathCode}/`,
     '/'
   );
   const langsMenu = getLangs(
@@ -43,7 +43,7 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
     getUrlForLang(homeLink, url)
   ).map(item => ({
     ...item,
-    link: item.link.replace(`/${defaultLangKey.pathCode}/`, '/'),
+    link: item.link.replace(`/${defaultLanguage.pathCode}/`, '/'),
   }));
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       {contentPage && <SkipLink />}
-      <LanguageNav langs={langsMenu} />
+      <LanguageNav languages={langsMenu} />
       {children}
     </ThemeProvider>
   );

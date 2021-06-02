@@ -1,4 +1,4 @@
-const languages = require('./src/i18n/i18n-config');
+const i18nConfig = require('./src/i18n/i18n-config');
 
 module.exports = {
   siteMetadata: {
@@ -10,7 +10,7 @@ module.exports = {
       'Projekt przybliżający mniejszości zamieszkujące Polskę i Czechy',
     image: '/images/logo/png',
     url: 'https://my-mensiny.netlify.app',
-    languages,
+    i18nConfig,
   },
   plugins: [
     {

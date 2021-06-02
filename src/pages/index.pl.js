@@ -22,10 +22,10 @@ const Intro = styled.div`
 `;
 
 const IndexPL = props => {
-  const { defaultLangKey } = props.data.site.siteMetadata.languages;
+  const { defaultLanguage } = props.data.site.siteMetadata.i18nConfig;
   const currentLangKey = props.pageContext.langKey;
   const homeLink = `/${currentLangKey}/`.replace(
-    `/${defaultLangKey.pathCode}/`,
+    `/${defaultLanguage.pathCode}/`,
     '/'
   );
   const minoritiesEdges = props.data.allMarkdownRemark.edges;
@@ -69,8 +69,8 @@ export const query = graphql`
     site {
       siteMetadata {
         title
-        languages {
-          defaultLangKey {
+        i18nConfig {
+          defaultLanguage {
             pathCode
           }
         }

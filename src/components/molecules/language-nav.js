@@ -29,13 +29,13 @@ const StyledNavItem = styled.li`
   }
 `;
 
-const LanguageNav = ({ langs }) => {
-  const links = langs.map(lang => (
-    <StyledNavItem key={lang.langKey}>
+const LanguageNav = ({ languages }) => {
+  const links = languages.map(language => (
+    <StyledNavItem key={language.langKey}>
       <LanguageLink
-        lang={lang.langKey}
-        link={lang.link}
-        selected={lang.selected}
+        lang={language.langKey}
+        link={language.link}
+        selected={language.selected}
       ></LanguageLink>
     </StyledNavItem>
   ));

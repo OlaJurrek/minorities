@@ -14,11 +14,12 @@ const Seo = ({ defaultPathname, description, lang, meta, title, image }) => {
     defaultDescription,
     siteUrl,
     defaultImage,
-    languages,
+    i18nConfig,
   } = site.siteMetadata;
 
-  const langCode = languages.langs.find(language => language.pathCode === lang)
-    .isoCode;
+  const langCode = i18nConfig.languages.find(
+    language => language.pathCode === lang
+  ).isoCode;
 
   const seo = {
     title: title || defaultTitle,
@@ -39,11 +40,11 @@ const Seo = ({ defaultPathname, description, lang, meta, title, image }) => {
       <link rel="canonical" href={seo.url} />
       <link
         rel="alternate"
-        hreflang={languages.defaultLangKey.isoCode}
+        hreflang={i18nConfig.defaultLanguage.isoCode}
         href={siteUrl + defaultPathname}
       />
-      {languages.langs
-        .filter(item => item.isoCode !== languages.defaultLangKey.isoCode)
+      {i18nConfig.languages
+        .filter(item => item.isoCode !== i18nConfig.defaultLanguage.isoCode)
         .map(item => (
           <link
             key={item.isoCode}
@@ -85,12 +86,12 @@ const query = graphql`
         defaultDescription: description
         siteUrl: url
         defaultImage: image
-        languages {
-          defaultLangKey {
+        i18nConfig {
+          defaultLanguage {
             isoCode
             pathCode
           }
-          langs {
+          languages {
             isoCode
             pathCode
           }
