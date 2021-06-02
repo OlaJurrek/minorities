@@ -26,7 +26,9 @@ const TranslationProvider = ({ children }) => {
     },
   });
 
-  i18next.languages = langConfig.langs;
+  const languagesList = langConfig.langs.map(lang => lang.pathCode);
+
+  i18next.languages = languagesList;
 
   return <I18nextProvider i18n={i18next}>{children}</I18nextProvider>;
 };

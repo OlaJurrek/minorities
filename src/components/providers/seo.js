@@ -4,18 +4,9 @@ import PropTypes from 'prop-types';
 import { useLocation } from '@reach/router';
 import { useStaticQuery, graphql } from 'gatsby';
 
-const Seo = ({ description, lang, meta, title, image }) => {
+const Seo = ({ defaultPathname, description, lang, meta, title, image }) => {
   const { pathname } = useLocation();
   const { site } = useStaticQuery(query);
-  const langCode = lang === 'cz' ? 'cs' : lang;
-  const alternateLangCode = lang === 'cz' ? 'pl' : 'cs';
-  const alternatePathname = pathname.startsWith('/cz/')
-    ? pathname.slice(3)
-    : `/cz${pathname}`;
-
-  const defaultPathname = pathname.startsWith('/cz/')
-    ? alternatePathname
-    : pathname;
 
   const {
     defaultTitle,
@@ -23,7 +14,11 @@ const Seo = ({ description, lang, meta, title, image }) => {
     defaultDescription,
     siteUrl,
     defaultImage,
+    languages,
   } = site.siteMetadata;
+
+  const langCode = languages.langs.find(language => language.pathCode === lang)
+    .isoCode;
 
   const seo = {
     title: title || defaultTitle,
@@ -41,13 +36,22 @@ const Seo = ({ description, lang, meta, title, image }) => {
       <html lang={langCode} />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
-      <link rel="canonical" href={siteUrl} />
-      <link rel="alternate" hreflang={langCode} href={siteUrl + pathname} />
+      <link rel="canonical" href={seo.url} />
       <link
         rel="alternate"
-        hreflang={alternateLangCode}
-        href={siteUrl + alternatePathname}
+        hreflang={languages.defaultLangKey.isoCode}
+        href={siteUrl + defaultPathname}
       />
+      {languages.langs
+        .filter(item => item.isoCode !== languages.defaultLangKey.isoCode)
+        .map(item => (
+          <link
+            key={item.isoCode}
+            rel="alternate"
+            hreflang={item.isoCode}
+            href={`${siteUrl}/${item.pathCode}${defaultPathname}`}
+          />
+        ))}
       <link
         rel="alternate"
         hreflang="x-default"
@@ -81,6 +85,16 @@ const query = graphql`
         defaultDescription: description
         siteUrl: url
         defaultImage: image
+        languages {
+          defaultLangKey {
+            isoCode
+            pathCode
+          }
+          langs {
+            isoCode
+            pathCode
+          }
+        }
       }
     }
   }

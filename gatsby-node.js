@@ -12,11 +12,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     }
 
     const prefix = lang === 'pl' ? '' : lang + '/';
+    const defaultSlug = '/' + slug;
     slug = prefix + slug;
     createNodeField({
       node,
       name: 'slug',
       value: slug,
+    });
+    createNodeField({
+      node,
+      name: 'defaultSlug',
+      value: defaultSlug,
     });
     createNodeField({
       node,
@@ -37,6 +43,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             fields {
               lang
               slug
+              defaultSlug
             }
             frontmatter {
               type
@@ -61,6 +68,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       context: {
         slug: edge.node.fields.slug,
         language: edge.node.fields.lang,
+        defaultSlug: edge.node.fields.defaultSlug,
       },
     });
   });

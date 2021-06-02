@@ -13,12 +13,12 @@ export default function SingleMinority({
     },
   },
   location,
-  pageContext: { language },
+  pageContext: { language, defaultSlug },
 }) {
   const fullTitle = titleAddition ? `${title} ${titleAddition}` : title;
   return (
     <ContentLayout location={location} currentLang={language}>
-      <Seo title={fullTitle} lang={language} />
+      <Seo title={fullTitle} lang={language} defaultPathname={defaultSlug} />
       <Headline text={fullTitle} />
       <MarkdownBody content={html} />
     </ContentLayout>

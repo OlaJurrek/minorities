@@ -42,7 +42,9 @@ export default function ContentLayout({ children, location, currentLang }) {
       site {
         siteMetadata {
           languages {
-            defaultLangKey
+            defaultLangKey {
+              pathCode
+            }
           }
         }
       }
@@ -50,7 +52,10 @@ export default function ContentLayout({ children, location, currentLang }) {
   `);
 
   const { defaultLangKey } = data.site.siteMetadata.languages;
-  const homeLink = `/${currentLang}/`.replace(`/${defaultLangKey}/`, '/');
+  const homeLink = `/${currentLang}/`.replace(
+    `/${defaultLangKey.pathCode}/`,
+    '/'
+  );
 
   const openMenu = value => {
     setIsMobileMenuOpen(value);

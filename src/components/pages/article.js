@@ -15,11 +15,11 @@ export default function Article({
     },
   },
   location,
-  pageContext: { language },
+  pageContext: { language, defaultSlug },
 }) {
   return (
     <ContentLayout location={location} currentLang={language}>
-      <Seo title={title} lang={language} />
+      <Seo title={title} lang={language} defaultPathname={defaultSlug} />
       <BiggerText text={author} />
       <Headline text={title} />
       <MarkdownBody content={html} />

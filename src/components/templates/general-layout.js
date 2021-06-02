@@ -17,8 +17,12 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
       site {
         siteMetadata {
           languages {
-            defaultLangKey
-            langs
+            defaultLangKey {
+              pathCode
+            }
+            langs {
+              pathCode
+            }
           }
         }
       }
@@ -27,15 +31,19 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
 
   const url = location.pathname;
   const { langs, defaultLangKey } = data.site.siteMetadata.languages;
+  const languagesList = langs.map(lang => lang.pathCode);
   const currentLangKey = currentLang;
-  const homeLink = `/${currentLangKey}/`.replace(`/${defaultLangKey}/`, '/');
+  const homeLink = `/${currentLangKey}/`.replace(
+    `/${defaultLangKey.pathCode}/`,
+    '/'
+  );
   const langsMenu = getLangs(
-    langs,
+    languagesList,
     currentLangKey,
     getUrlForLang(homeLink, url)
   ).map(item => ({
     ...item,
-    link: item.link.replace(`/${defaultLangKey}/`, '/'),
+    link: item.link.replace(`/${defaultLangKey.pathCode}/`, '/'),
   }));
 
   useEffect(() => {
