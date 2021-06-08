@@ -135,8 +135,12 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   useEffect(() => {
     const activeLink = document.getElementsByClassName('active');
 
-    setActiveElementOffset(activeLink[0].offsetTop);
-    setMarkerOffset(activeLink[0].offsetTop);
+    console.log(activeLink);
+
+    if (activeLink.length) {
+      setActiveElementOffset(activeLink[0].offsetTop);
+      setMarkerOffset(activeLink[0].offsetTop);
+    }
   }, []);
 
   return (

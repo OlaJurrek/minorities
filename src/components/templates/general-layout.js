@@ -2,10 +2,7 @@ import React, { useEffect } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { getLangs, getUrlForLang } from 'ptz-i18n';
 import { useTranslation } from 'react-i18next';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../../styles/theme';
-
-import GlobalStyle from '../../styles/GlobalStyle';
+import StylesProvider from '../providers/styles-provider';
 import LanguageNav from '../molecules/language-nav';
 import SkipLink from '../atoms/skip-link';
 
@@ -53,12 +50,11 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
   }, [currentLangKey, i18n]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
+    <StylesProvider>
       {contentPage && <SkipLink />}
       <LanguageNav languages={langsMenu} />
       {children}
-    </ThemeProvider>
+    </StylesProvider>
   );
 };
 
