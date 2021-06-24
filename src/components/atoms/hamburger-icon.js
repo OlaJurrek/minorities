@@ -4,17 +4,15 @@ export const HamburgerIcon = styled.button`
   position: relative;
   z-index: 6;
   width: 2.5em;
-  height: 19px;
+  height: 23px;
   margin-bottom: 6px;
   background-color: transparent;
   border: none;
-  transition: 500ms ease-in-out;
-  transform: translateX(
-    ${props => (props.animate ? 'calc(100vw - 110px)' : 0)}
-  );
+  transform: translateX(${props => (props.animate ? '-105px' : 0)});
 
   &:focus {
-    outline: 0;
+    outline: 2px solid ${({ theme }) => theme.colors.orange};
+    outline-offset: 5px;
   }
 
   span {
@@ -40,7 +38,7 @@ export const HamburgerIcon = styled.button`
     }
 
     &:nth-child(3) {
-      top: ${props => (props.animate ? '10px' : '100%')};
+      top: ${props => (props.animate ? '10px' : '20px')};
       transform: rotate(${props => (props.animate ? '-135deg' : '0deg')});
     }
   }

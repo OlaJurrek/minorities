@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import GeneralLayout from './general-layout';
 import Sidebar from '../molecules/sidebar';
-import MobileNav from '../molecules/mobile-nav';
 import Footer from '../atoms/footer';
 
 const Main = styled.main`
@@ -19,10 +18,12 @@ const Main = styled.main`
 `;
 
 const Grid = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
   min-height: 100vh;
+  overflow: hidden;
 
   ${({ theme }) => theme.media.md`
     grid-template-columns: 250px 1fr;
@@ -35,8 +36,6 @@ const Grid = styled.div`
 `;
 
 export default function ContentLayout({ children, location, currentLang }) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -57,19 +56,10 @@ export default function ContentLayout({ children, location, currentLang }) {
     '/'
   );
 
-  const openMenu = value => {
-    setIsMobileMenuOpen(value);
-  };
-
   return (
     <GeneralLayout location={location} currentLang={currentLang} contentPage>
       <Grid>
-        <Sidebar
-          homeLink={homeLink}
-          currentLangKey={currentLang}
-          isOpen={isMobileMenuOpen}
-        />
-        <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
+        <Sidebar homeLink={homeLink} currentLangKey={currentLang} />
         <Main>{children}</Main>
         <Footer />
       </Grid>

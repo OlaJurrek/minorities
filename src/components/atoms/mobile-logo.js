@@ -8,4 +8,5 @@ export const MobileLogo = styled(Link)`
   font-family: ${({ theme }) => theme.fonts.plex};
   font-variation-settings: 'wght' 450;
   line-height: 1;
+  visibility: ${({ animate }) => (animate ? 'hidden' : 'visible')};
 `;

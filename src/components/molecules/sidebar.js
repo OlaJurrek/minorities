@@ -1,107 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
+import StyledAside from './styled-aside';
+import MobileNav from '../molecules/mobile-nav';
 import ActiveMarker from '../atoms/active-marker';
 import { DesktopLogo } from '../atoms/desktop-logo';
+import MenuList from './menu-list';
+import MenuLinkWrapper from '../atoms/menu-link-wrapper';
 import { MenuLink } from '../atoms/menu-link';
 import Facebook from '../atoms/facebook';
 
-const Aside = styled.aside`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 0.5em;
-  background-color: ${({ theme }) => theme.colors.lightGrey};
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(${({ isOpen }) => (isOpen ? '0' : '-100%')});
-  grid-row: 1 / 3;
-
-  ${({ theme }) => theme.media.md`
-    position: static;
-    transform: none;
-    padding-bottom: 1em;
-  `}
-
-  ${({ theme }) => theme.media.lg`
-    border-right: 1px solid ${({ theme }) => theme.colors.dark};
-  `}
-
-  nav {
-    width: 100%;
-    flex-grow: 1;
-  }
-`;
-
-const MenuList = styled.ul`
-  position: relative;
-  margin: 0;
-  font-variation-settings: 'wght' 380;
-
-  li.white-text {
-    background-color: ${({ theme }) => theme.colors.dark};
-    position: relative;
-
-    ${({ theme }) => theme.media.lg`
-    ::before,
-    ::after {
-      position: absolute;
-      content: '';
-      top: 0;
-      height: 100%;
-    }
-
-    ::before {
-      width: 25px;
-      right: -26px;
-      background-color: ${({ theme }) => theme.colors.dark};
-    }
-
-    ::after {
-      width: 1px;
-      right: -1px;
-      background-color: ${({ theme }) => theme.colors.lightGrey};
-    }
-  `}
-  }
-`;
-
-const MenuLinkWrapper = styled.div`
-  margin-left: 2em;
-  padding: 0.5em 1em 0.5em 1.8em;
-  border-left: solid 1.5px
-    ${({ theme, light }) =>
-      light ? theme.colors.lightGrey : theme.colors.dark};
-`;
-
-export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
+export default function Sidebar({ currentLangKey, homeLink }) {
   const [activeElementOffset, setActiveElementOffset] = useState(0);
   const [markerOffset, setMarkerOffset] = useState(activeElementOffset);
   const currentLangPrefix = currentLangKey === 'pl' ? '' : currentLangKey + '/';
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const asideRef = useRef(null);
 
-  const data = useStaticQuery(graphql`
-    query MyQuery {
-      allMarkdownRemark {
-        edges {
-          node {
-            fields {
-              slug
-              lang
-            }
-            frontmatter {
-              title
-              titleAddition
-              type
-            }
-          }
-        }
-      }
-    }
-  `);
+  const data = useStaticQuery(sidebarQuery);
 
   const minoritiesPages = data.allMarkdownRemark.edges.filter(
     page =>
@@ -124,6 +39,10 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   const aboutTitle = getTitle('about', currentLangKey);
   const articleTitle = getTitle('article', currentLangKey);
 
+  const openMenu = value => {
+    setIsMobileMenuOpen(value);
+  };
+
   const handleMouseEnter = e => {
     setMarkerOffset(e.target.offsetTop);
   };
@@ -132,10 +51,28 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
     setMarkerOffset(activeElementOffset);
   };
 
+  const handleKeyDown = e => {
+    if (e.keyCode === 9) {
+      const focusableItems = asideRef.current.querySelectorAll('a, button');
+      const firstFocusableItem = focusableItems[1];
+      const lastFocusableItem = focusableItems[focusableItems.length - 1];
+
+      if (!e.shiftKey && e.target === lastFocusableItem) {
+        e.preventDefault();
+        firstFocusableItem.focus();
+      }
+
+      if (e.shiftKey && e.target === firstFocusableItem) {
+        e.preventDefault();
+        lastFocusableItem.focus();
+      }
+    }
+  };
+
   useEffect(() => {
     const activeLink = document.getElementsByClassName('active');
 
-    console.log(activeLink);
+    console.log(activeLink[0].textContent, activeLink[0].offsetTop);
 
     if (activeLink.length) {
       setActiveElementOffset(activeLink[0].offsetTop);
@@ -144,7 +81,12 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
   }, []);
 
   return (
-    <Aside isOpen={isOpen}>
+    <StyledAside
+      isOpen={isMobileMenuOpen}
+      onKeyDown={handleKeyDown}
+      ref={asideRef}
+    >
+      <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
       <nav>
         <DesktopLogo link={homeLink} />
         <ActiveMarker offset={markerOffset} />
@@ -203,6 +145,26 @@ export default function Sidebar({ currentLangKey, homeLink, isOpen }) {
         </MenuList>
       </nav>
       <Facebook />
-    </Aside>
+    </StyledAside>
   );
 }
+
+const sidebarQuery = graphql`
+  query MyQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          fields {
+            slug
+            lang
+          }
+          frontmatter {
+            title
+            titleAddition
+            type
+          }
+        }
+      }
+    }
+  }
+`;

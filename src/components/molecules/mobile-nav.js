@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { HamburgerIcon } from '../atoms/hamburger-icon';
 import { MobileLogo } from '../atoms/mobile-logo';
 
 const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  right: -6.5em;
+  visibility: visible;
   padding: 0.5em;
   display: flex;
   align-items: center;
@@ -15,7 +20,8 @@ const StyledHeader = styled.header`
 `;
 
 const MobileNav = ({ homeLink, onOpenMenu }) => {
-  const [animate, setAnimate] = useState(false);
+  const { t } = useTranslation();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -27,17 +33,27 @@ const MobileNav = ({ homeLink, onOpenMenu }) => {
   `);
 
   const handleClick = () => {
-    setAnimate(animate => !animate);
-    onOpenMenu(animate => !animate);
+    setIsSidebarOpen(isSidebarOpen => !isSidebarOpen);
+    onOpenMenu(isSidebarOpen => !isSidebarOpen);
   };
 
   return (
     <StyledHeader>
-      <MobileLogo to={homeLink}>{data.site.siteMetadata.shortTitle}</MobileLogo>
-      <HamburgerIcon onClick={handleClick} animate={animate}>
-        <span></span>
-        <span></span>
-        <span></span>
+      <MobileLogo
+        {...isSidebarOpen}
+        to={homeLink}
+        tabIndex={isSidebarOpen ? '-1' : '0'}
+      >
+        {data.site.siteMetadata.shortTitle}
+      </MobileLogo>
+      <HamburgerIcon
+        onClick={handleClick}
+        animate={isSidebarOpen}
+        aria-label={t('openMenu')}
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
       </HamburgerIcon>
     </StyledHeader>
   );

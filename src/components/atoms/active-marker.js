@@ -19,5 +19,5 @@ const Marker = styled.i`
 `;
 
 export default function ActiveMarker({ offset }) {
-  return <Marker offset={offset} />;
+  return <Marker offset={offset} aria-hidden="true" />;
 }
