@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { HamburgerIcon } from '../atoms/hamburger-icon';
 import { MobileLogo } from '../atoms/mobile-logo';
 
-const StyledHeader = styled.header`
+const StyledWrapper = styled.div`
   position: fixed;
   top: 0;
   right: -6.5em;
@@ -19,7 +19,7 @@ const StyledHeader = styled.header`
   `}
 `;
 
-const MobileNav = ({ homeLink, onOpenMenu }) => {
+const MobileSupplementalNav = ({ homeLink, onOpenMenu }) => {
   const { t } = useTranslation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const data = useStaticQuery(graphql`
@@ -38,7 +38,7 @@ const MobileNav = ({ homeLink, onOpenMenu }) => {
   };
 
   return (
-    <StyledHeader>
+    <StyledWrapper>
       <MobileLogo
         {...isSidebarOpen}
         to={homeLink}
@@ -55,8 +55,8 @@ const MobileNav = ({ homeLink, onOpenMenu }) => {
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </HamburgerIcon>
-    </StyledHeader>
+    </StyledWrapper>
   );
 };
 
-export default MobileNav;
+export default MobileSupplementalNav;

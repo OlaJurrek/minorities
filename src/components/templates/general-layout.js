@@ -51,8 +51,10 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
 
   return (
     <StylesProvider>
-      {contentPage && <SkipLink />}
-      <LanguageNav languages={langsMenu} />
+      <nav>
+        {contentPage && <SkipLink />}
+        <LanguageNav languages={langsMenu} />
+      </nav>
       {children}
     </StylesProvider>
   );

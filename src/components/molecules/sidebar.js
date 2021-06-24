@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import StyledAside from './styled-aside';
-import MobileNav from '../molecules/mobile-nav';
+import MobileSupplementalNav from './mobile-supplemental-nav';
 import ActiveMarker from '../atoms/active-marker';
-import { DesktopLogo } from '../atoms/desktop-logo';
+import { Logo } from '../atoms/logo';
 import MenuList from './menu-list';
 import MenuLinkWrapper from '../atoms/menu-link-wrapper';
 import { MenuLink } from '../atoms/menu-link';
@@ -86,9 +86,9 @@ export default function Sidebar({ currentLangKey, homeLink }) {
       onKeyDown={handleKeyDown}
       ref={asideRef}
     >
-      <MobileNav homeLink={homeLink} onOpenMenu={openMenu} />
       <nav>
-        <DesktopLogo link={homeLink} />
+        <MobileSupplementalNav homeLink={homeLink} onOpenMenu={openMenu} />
+        <Logo link={homeLink} />
         <ActiveMarker offset={markerOffset} />
         <MenuList>
           <li className="white-text">

@@ -51,13 +51,13 @@ const StyledLogo = styled(Link)`
   `}
 `;
 
-export const DesktopLogo = ({ link }) => {
+export const Logo = ({ link }) => {
   const {
     site: {
       siteMetadata: { title },
     },
   } = useStaticQuery(graphql`
-    query DesktopLogoQuery {
+    query LogoQuery {
       site(siteMetadata: {}) {
         siteMetadata {
           title
