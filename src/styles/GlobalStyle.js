@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import 'fontsource-poppins/300.css';
+import 'fontsource-poppins/300-italic.css';
+import 'fontsource-poppins/500.css';
 
 const GlobalStyle = createGlobalStyle`
 
@@ -31,7 +33,8 @@ html {
 body {
   margin: 0;
   font-family: ${({ theme }) => theme.fonts.poppins};
-    color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.black};
+  font-weight: 300;
 }
 
 p {
@@ -52,7 +55,7 @@ strong {
   font-weight: bolder;
 }
 
-ul {
+ol, ul {
   list-style: none;
   margin: 0;
   padding: 0;
