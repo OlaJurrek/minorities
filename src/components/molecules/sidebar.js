@@ -73,11 +73,10 @@ export default function Sidebar({ currentLangKey, homeLink }) {
   useEffect(() => {
     const activeLink = menuListRef.current.getElementsByClassName('active');
 
-    console.log(activeLink[0].textContent, activeLink[0].offsetTop);
-
     if (activeLink.length) {
-      setActiveElementOffset(activeLink[0].offsetTop);
-      setMarkerOffset(activeLink[0].offsetTop);
+      const activeLinkOffset = activeLink[0].closest('li').offsetTop + 5;
+      setActiveElementOffset(activeLinkOffset);
+      setMarkerOffset(activeLinkOffset);
     }
   }, []);
 
@@ -88,7 +87,11 @@ export default function Sidebar({ currentLangKey, homeLink }) {
       ref={asideRef}
     >
       <nav>
-        <MobileSupplementalNav homeLink={homeLink} onToggleMenu={toggleMenu} isOpen={isMobileMenuOpen}/>
+        <MobileSupplementalNav
+          homeLink={homeLink}
+          onToggleMenu={toggleMenu}
+          isOpen={isMobileMenuOpen}
+        />
         <Logo link={homeLink} />
         <ActiveMarker offset={markerOffset} />
         <MenuList ref={menuListRef}>
