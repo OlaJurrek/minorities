@@ -15,6 +15,7 @@ export default function Sidebar({ currentLangKey, homeLink }) {
   const currentLangPrefix = currentLangKey === 'pl' ? '' : currentLangKey + '/';
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const asideRef = useRef(null);
+  const menuListRef = useRef(null);
 
   const data = useStaticQuery(sidebarQuery);
 
@@ -39,7 +40,7 @@ export default function Sidebar({ currentLangKey, homeLink }) {
   const aboutTitle = getTitle('about', currentLangKey);
   const articleTitle = getTitle('article', currentLangKey);
 
-  const openMenu = value => {
+  const toggleMenu = value => {
     setIsMobileMenuOpen(value);
   };
 
@@ -70,7 +71,7 @@ export default function Sidebar({ currentLangKey, homeLink }) {
   };
 
   useEffect(() => {
-    const activeLink = document.getElementsByClassName('active');
+    const activeLink = menuListRef.current.getElementsByClassName('active');
 
     console.log(activeLink[0].textContent, activeLink[0].offsetTop);
 
@@ -87,10 +88,10 @@ export default function Sidebar({ currentLangKey, homeLink }) {
       ref={asideRef}
     >
       <nav>
-        <MobileSupplementalNav homeLink={homeLink} onOpenMenu={openMenu} />
+        <MobileSupplementalNav homeLink={homeLink} onToggleMenu={toggleMenu} isOpen={isMobileMenuOpen}/>
         <Logo link={homeLink} />
         <ActiveMarker offset={markerOffset} />
-        <MenuList>
+        <MenuList ref={menuListRef}>
           <li className="white-text">
             <MenuLinkWrapper light="true">
               <MenuLink

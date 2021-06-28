@@ -8,7 +8,7 @@ export const HamburgerIcon = styled.button`
   margin-bottom: 6px;
   background-color: transparent;
   border: none;
-  transform: translateX(${props => (props.animate ? '-105px' : 0)});
+  transform: translateX(${({isOpen}) => isOpen ? '-105px' : 0});
 
   &:focus {
     outline: 2px solid ${({ theme }) => theme.colors.orange};
@@ -27,19 +27,19 @@ export const HamburgerIcon = styled.button`
     transition: 500ms ease-in-out;
 
     &:nth-child(1) {
-      top: ${props => (props.animate ? '10px' : '0')};
-      transform: rotate(${props => (props.animate ? '135deg' : '0deg')});
+      top: ${({isOpen}) => isOpen ? '10px' : '0'};
+      transform: rotate(${({isOpen}) => isOpen ? '135deg' : '0deg'});
     }
 
     &:nth-child(2) {
       top: 10px;
-      opacity: ${props => (props.animate ? '0' : '1')};
-      transform: translateX(${props => (props.animate ? '-100%' : '0')});
+      opacity: ${({isOpen}) => isOpen ? '0' : '1'};
+      transform: translateX(${({isOpen}) => isOpen ? '-100%' : '0'});
     }
 
     &:nth-child(3) {
-      top: ${props => (props.animate ? '10px' : '20px')};
-      transform: rotate(${props => (props.animate ? '-135deg' : '0deg')});
+      top: ${({isOpen}) => isOpen ? '10px' : '20px'};
+      transform: rotate(${({isOpen}) => isOpen ? '-135deg' : '0deg'});
     }
   }
 `;

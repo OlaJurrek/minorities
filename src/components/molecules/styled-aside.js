@@ -19,7 +19,7 @@ const makeVisible = keyframes`
 `;
 
 const visibilityMixin = css`
-  animation-delay: ${({ isOpen }) => (isOpen ? '0.3s' : '0s')};
+  animation-delay: '0.3s';
   animation-duration: 0s;
   animation-name: ${({ isOpen }) => (isOpen ? makeVisible : makeInvisible)};
   animation-fill-mode: forwards;

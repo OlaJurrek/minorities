@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
@@ -19,36 +19,26 @@ const StyledWrapper = styled.div`
   `}
 `;
 
-const MobileSupplementalNav = ({ homeLink, onOpenMenu }) => {
+const MobileSupplementalNav = ({ homeLink, isOpen, onToggleMenu }) => {
   const { t } = useTranslation();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          shortTitle
-        }
-      }
-    }
-  `);
+  const data = useStaticQuery(mobileNavQuery);
 
   const handleClick = () => {
-    setIsSidebarOpen(isSidebarOpen => !isSidebarOpen);
-    onOpenMenu(isSidebarOpen => !isSidebarOpen);
+    onToggleMenu(isOpen => !isOpen);
   };
 
   return (
     <StyledWrapper>
       <MobileLogo
-        {...isSidebarOpen}
+        {...isOpen}
         to={homeLink}
-        tabIndex={isSidebarOpen ? '-1' : '0'}
+        tabIndex={isOpen ? '-1' : '0'}
       >
         {data.site.siteMetadata.shortTitle}
       </MobileLogo>
       <HamburgerIcon
         onClick={handleClick}
-        animate={isSidebarOpen}
+        isOpen={isOpen}
         aria-label={t('openMenu')}
       >
         <span aria-hidden="true"></span>
@@ -60,3 +50,13 @@ const MobileSupplementalNav = ({ homeLink, onOpenMenu }) => {
 };
 
 export default MobileSupplementalNav;
+
+const mobileNavQuery = graphql`
+query {
+  site {
+    siteMetadata {
+      shortTitle
+    }
+  }
+}
+`;
