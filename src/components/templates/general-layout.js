@@ -19,6 +19,7 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
             }
             languages {
               pathCode
+              isoCode
             }
           }
         }
@@ -41,6 +42,7 @@ const GeneralLayout = ({ contentPage, children, currentLang, location }) => {
   ).map(item => ({
     ...item,
     link: item.link.replace(`/${defaultLanguage.pathCode}/`, '/'),
+    isoCode: languages.find(lang => lang.pathCode === item.langKey).isoCode,
   }));
 
   useEffect(() => {

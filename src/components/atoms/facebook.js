@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import FacebookIcon from '../../../static/images/facebook.svg';
 
@@ -18,8 +19,16 @@ const StyledLink = styled.a`
 `;
 
 const Facebook = () => {
+  const { t } = useTranslation();
+
   return (
-    <StyledLink href="https://www.facebook.com/" target="_blank">
+    <StyledLink
+      href="https://www.facebook.com/"
+      target="_blank"
+      rel="noopener"
+      rel="noreferrer"
+      aria-label={t('facebookLink')}
+    >
       <FacebookIcon />
     </StyledLink>
   );

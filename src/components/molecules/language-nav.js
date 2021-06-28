@@ -33,7 +33,8 @@ const LanguageNav = ({ languages }) => {
   const links = languages.map(language => (
     <StyledNavItem key={language.langKey}>
       <LanguageLink
-        lang={language.langKey}
+        lang={language.isoCode}
+        text={language.langKey}
         link={language.link}
         selected={language.selected}
       ></LanguageLink>

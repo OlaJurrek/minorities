@@ -24,7 +24,7 @@ const StyledLink = styled(props => <Link {...props} />)`
 
 const LanguageLink = props => (
   <StyledLink {...props} to={props.link}>
-    {props.lang}
+    {props.text}
   </StyledLink>
 );
 
