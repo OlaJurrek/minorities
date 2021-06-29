@@ -25,8 +25,7 @@ const Facebook = () => {
     <StyledLink
       href="https://www.facebook.com/"
       target="_blank"
-      rel="noopener"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       aria-label={t('facebookLink')}
     >
       <FacebookIcon />
