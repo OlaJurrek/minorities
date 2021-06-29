@@ -18,7 +18,7 @@ const StyledContent = styled.div`
     font-variation-settings: 'wght' 450;
   }
 
-  a {
+  a:not(.gatsby-resp-image-link) {
     position: relative;
     color: ${({ theme }) => theme.colors.orange};
     font-weight: 500;
