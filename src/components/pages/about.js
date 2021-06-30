@@ -12,7 +12,7 @@ import Patrons from '../atoms/patrons';
 export default function About({
   data: {
     markdownRemark: {
-      frontmatter: { title, dates, datesHeader, patrons },
+      frontmatter: { title, dates, datesHeader },
       html,
     },
   },
@@ -35,11 +35,11 @@ export default function About({
           <DatesList dates={dates} />
         </ContentWrapper>
       )}
-      {patrons.length && (
+      {/* {patrons.length && (
         <ContentWrapper marginBottom>
           <Patrons patrons={patrons} />
         </ContentWrapper>
-      )}
+      )} */}
     </ContentLayout>
   );
 }
@@ -51,7 +51,6 @@ export const pageQuery = graphql`
         title
         dates
         datesHeader
-        patrons
       }
       html
     }
