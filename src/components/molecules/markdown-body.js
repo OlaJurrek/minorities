@@ -1,18 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import ContentWrapper from '../atoms/content-wrapper';
 
-const StyledContent = styled.div`
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: 15px;
-  line-height: 1.6;
-
-  ${({ theme }) => theme.media.sm`
-      font-size: 16px;
-      line-height: 1.5;
-  `}
-
-  h1, h2, h3, h4, h5, h6 {
+const StyledContent = styled(ContentWrapper)`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: ${({ theme }) => theme.fonts.plex};
     font-weight: 450;
     font-variation-settings: 'wght' 450;
@@ -146,6 +142,7 @@ const StyledContent = styled.div`
 const MarkdownBody = ({ content }) => {
   return (
     <StyledContent
+      marginBottom
       dangerouslySetInnerHTML={{ __html: content }}
     ></StyledContent>
   );

@@ -4,7 +4,8 @@ import ContentLayout from '../templates/content-layout';
 import SEO from '../seo/SEO';
 import Headline from '../atoms/headline';
 import Paragraph from '../atoms/paragraph';
-import MarkdownBody from '../atoms/markdown-body';
+import MarkdownBody from '../molecules/markdown-body';
+import ContentWrapper from '../atoms/content-wrapper';
 import BiggerText from '../atoms/bigger-text';
 
 export default function Article({
@@ -25,10 +26,16 @@ export default function Article({
         defaultPathname={defaultSlug}
         ogType="article"
       />
-      <BiggerText text={author} />
-      <Headline text={title} />
+      <ContentWrapper>
+        <BiggerText text={author} />
+        <Headline text={title} />
+      </ContentWrapper>
       <MarkdownBody content={html} />
-      {translator && <Paragraph>{translator}</Paragraph>}
+      {translator && (
+        <ContentWrapper>
+          <Paragraph>{translator}</Paragraph>
+        </ContentWrapper>
+      )}
     </ContentLayout>
   );
 }

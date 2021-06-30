@@ -4,8 +4,10 @@ import ContentLayout from '../templates/content-layout';
 import SEO from '../seo/SEO';
 import Headline from '../atoms/headline';
 import BiggerText from '../atoms/bigger-text';
-import MarkdownBody from '../atoms/markdown-body';
+import MarkdownBody from '../molecules/markdown-body';
+import ContentWrapper from '../atoms/content-wrapper';
 import DatesList from '../molecules/dates-list';
+import Patrons from '../atoms/patrons';
 
 export default function About({
   data: {
@@ -28,10 +30,15 @@ export default function About({
       <Headline text={title} />
       <MarkdownBody content={html} />
       {dates.length > 0 && (
-        <>
+        <ContentWrapper marginBottom>
           <BiggerText as="h2" alignment="center" text={datesHeader} />
           <DatesList dates={dates} />
-        </>
+        </ContentWrapper>
+      )}
+      {patrons.length && (
+        <ContentWrapper marginBottom>
+          <Patrons patrons={patrons} />
+        </ContentWrapper>
       )}
     </ContentLayout>
   );

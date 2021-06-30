@@ -5,9 +5,6 @@ datesHeader: Terminy i miejsca spotkań
 dates:
   - 31 czerwca 2021 - online
   - 12 września 2021 - Czeskie centrum i online
-patrons:
-  - /uploads/cc_logo.jpg
-  - /uploads/ispan-logo.svg
 ---
 
 Polska była krajem zróżnicowanym etnicznie i religijnie w ciągu całej swojej

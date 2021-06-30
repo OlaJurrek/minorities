@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import ContentLayout from '../templates/content-layout';
 import SEO from '../seo/SEO';
 import Headline from '../atoms/headline';
-import MarkdownBody from '../atoms/markdown-body';
+import MarkdownBody from '../molecules/markdown-body';
 
 export default function SingleMinority({
   data: {

@@ -83,12 +83,10 @@ collections:
                 { label: 'spotkanie', name: 'Spotkanie', widget: 'string' },
             }
           - {
-              name: patrons,
-              label: 'Loga patronów',
+              name: patron1,
+              label: 'Logo pierwszego patrona',
               required: false,
-              widget: list,
-              label_singular: 'logo',
-              field: { name: logo, label: Logo, widget: image },
+              widget: image,
             }
       #----- O mniejszościach i większościach - PL -------
       - file: 'src/content/pl/erazim-kohak.md'
@@ -184,12 +182,10 @@ collections:
               field: { label: 'spotkanie', name: 'Setkání', widget: 'string' },
             }
           - {
-              name: patrons,
-              label: 'Loga organizací',
+              name: patron1,
+              label: 'Logo první organizace',
               required: false,
-              widget: list,
-              label_singular: 'logo',
-              field: { name: logo, label: Logo, widget: image },
+              widget: image,
             }
       #----- O mniejszościach i większościach - CZ -------
       - file: 'src/content/cz/erazim-kohak.md'
