@@ -35,9 +35,9 @@ export default function About({
           <DatesList dates={dates} />
         </ContentWrapper>
       )}
-      {/* {patrons.length && (
+      {/* {patron1 && (
         <ContentWrapper marginBottom>
-          <Patrons patrons={patrons} />
+          <Patrons patron1={patron1} />
         </ContentWrapper>
       )} */}
     </ContentLayout>

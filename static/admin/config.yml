@@ -52,6 +52,8 @@ collections:
 
   - name: pagesPL
     label: Pozostałe strony - PL
+    media_folder: ''
+    public_folder: ''
     files:
       #----- O projekcie - PL -------
       - file: 'src/content/pl/o-projekcie.md'
