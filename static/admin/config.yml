@@ -87,7 +87,13 @@ collections:
           - {
               name: patron1,
               label: 'Logo pierwszego patrona',
-              required: false,
+              required: true,
+              widget: image,
+            }
+          - {
+              name: patron2,
+              label: 'Logo drugiego patrona',
+              required: true,
               widget: image,
             }
       #----- O mniejszościach i większościach - PL -------
@@ -154,6 +160,8 @@ collections:
 
   - name: pagesCZ
     label: Ostatní stránky - CZ
+    media_folder: './../media/'
+    public_folder: './../media'
     files:
       #--------- O projekcie - CZ ----------------
       - file: 'src/content/cz/o-projekcie.md'
@@ -186,7 +194,13 @@ collections:
           - {
               name: patron1,
               label: 'Logo první organizace',
-              required: false,
+              required: true,
+              widget: image,
+            }
+          - {
+              name: patron2,
+              label: 'Logo druhé organizace',
+              required: true,
               widget: image,
             }
       #----- O mniejszościach i większościach - CZ -------
