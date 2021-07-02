@@ -6,6 +6,7 @@ dates:
   - 31 czerwca 2021 - online
   - 12 września 2021 - Czeskie centrum i online
 patron1: ../media/cc_logo.jpg
+patron2: ../media/ispan-logo.svg
 ---
 
 Polska była krajem zróżnicowanym etnicznie i religijnie w ciągu całej swojej
