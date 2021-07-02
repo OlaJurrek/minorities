@@ -6,7 +6,9 @@ import Sidebar from '../molecules/sidebar';
 import Footer from '../atoms/footer';
 
 const Main = styled.main`
-  padding: 2.8em 0.8em 0;
+  display: flex;
+  flex-direction: column;
+  padding: 5.5em 0.8em 0;
 
   ${({ theme }) => theme.media.md`
     padding: 7em 2em 0;
@@ -15,6 +17,10 @@ const Main = styled.main`
   ${({ theme }) => theme.media.lg`
     padding: 7em 5em 0;
   `}
+
+  & >  * {
+    width: 100%;
+  }
 `;
 
 const Grid = styled.div`
@@ -27,11 +33,11 @@ const Grid = styled.div`
 
   ${({ theme }) => theme.media.md`
     grid-template-columns: 250px 1fr;
-    grid-template-rows: none;
   `}
 
   ${({ theme }) => theme.media.lg`
     grid-template-columns: 320px 1fr;
+    grid-template-rows: 1fr auto;
   `}
 `;
 

@@ -72,6 +72,10 @@ textarea {
   max-width: 100%;
 }
 
+figure {
+  margin: 0;
+}
+
 button,
 input,
 select {
